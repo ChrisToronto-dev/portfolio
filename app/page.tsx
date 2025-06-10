@@ -1,0 +1,202 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Balatro from "./component/Balatro";
+
+export default function Home() {
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  return (
+    <main>
+      <header className="fixed z-99 w-full">
+        <div className="top-line bg-black w-vw h-2.5"></div>
+        <div className="header-container flex justify-items-start px-10 max-w-[1800px] mx-auto">
+          <div className="header-logo-box bg-black">
+            <img className="w-[100px] h-auto" src="/images/logo.svg" alt="" />
+          </div>
+          <div className="">
+            <nav className="navigation">
+              <a href="#project">Profject</a>
+              <a href="#project">About</a>
+              <a href="#project">Education</a>
+              <button
+                onClick={toggleDarkMode}
+                className="px-4 py-2 rounded-md bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white"
+              >
+                {isDarkMode ? "Light Mode" : "Dark Mode"}
+              </button>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <div
+        className={`min-h-screen ${
+          isDarkMode ? "bg-black text-white" : "bg-white text-black"
+        }`}
+      >
+        <div className="hero-section">
+          <div className="w-full max-w-[1800px] px-10 m-auto">
+            <div className="flex justify-between gap-2.5 min-h-[630px] h-[95vh]">
+              <div className="hero-left relative w-full h-full rounded-4xl flex items-end">
+                <Balatro
+                  isRotate={false}
+                  mouseInteraction={true}
+                  pixelFilter={1600}
+                />
+              </div>
+              <div className="flex flex-col justify-between gap-2.5 items-center h-full"></div>
+            </div>
+          </div>
+        </div>
+        <div className="container mx-auto">
+          {/* Dark Mode Toggle */}
+          <div className="flex justify-end mb-4"></div>
+
+          {/* Header/Hero Section - Simplified */}
+          <section className="text-center my-12">
+            <p className="text-xl text-gray-400">Web Developer</p>
+          </section>
+
+          {/* Skills Section */}
+          <section className="my-12">
+            <h2 className="text-4xl font-bold mb-8 text-center">S K I L L S</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700">
+                <h3 className="text-2xl font-semibold mb-4">Strong:</h3>
+                <p className="text-gray-300">
+                  WordPress, PHP, Elementor Pro, JavaScript (ES6+)/jQuery,
+                  HTML5, SASS, Express.js, RESTful API, MongoDB
+                </p>
+              </div>
+              <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700">
+                <h3 className="text-2xl font-semibold mb-4">Experienced:</h3>
+                <p className="text-gray-300 dark:text-gray-200">
+                  MVC, GraphQL, MySQL, Authentication (Portfolio:{" "}
+                  <a
+                    href="https://rosaa-portfolio.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 underline"
+                  >
+                    https://rosaa-portfolio.netlify.app/
+                  </a>
+                  )
+                </p>
+                <p className="text-gray-300">
+                  React.js, Next.js TypeScript, Git, Gulp, Node.js,
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Experience Section */}
+          <section className="my-12">
+            <h2 className="text-4xl font-bold mb-8 text-center">
+              E X P E R I E N C E
+            </h2>
+            <div className="space-y-8">
+              {/* White Canvas Design */}
+              <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700">
+                <h3 className="text-2xl font-semibold">White Canvas Design</h3>
+                <p className="text-gray-500">Langley Twp, BC, CA</p>
+                <p className="font-medium text-gray-400 dark:text-gray-300">
+                  Wordpress Developer • Oct 2021 - Dec 2024
+                </p>
+                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 dark:text-gray-200">
+                  <li>
+                    Developed and maintained in-house and customer-facing
+                    web-applications using WordPress(PHP), Shopify(Liquid) ,
+                    Elementor, JavaScript/jQuery, HTML&CSS, Ajax , React.js,
+                    Node.js, and other programming languages upon needed
+                  </li>
+                  <li>
+                    Created responsive custom WordPress themes from scratch
+                    primarily using PHP, MAMP, JavaScript, JQuery, Advanced
+                    Custom Fields (ACF Pro or CPT UI plugins), custom post
+                    types, HTML5, SASS, CSS framework like Bulma , and Gulp for
+                    compiling/compressing
+                  </li>
+                  <li>
+                    Monitored website performance(SEO, page speed etc.),
+                    identified issues, and implemented necessary fixes or
+                    improvements and conducted version control using Github
+                  </li>
+                  <li>
+                    Troubleshoot issues related to website, plugins, and theme
+                    investigating through the hosting platforms(WPEngine, Danory
+                    or cPanel) and File Manager, PHP Admin
+                  </li>
+                  <li>
+                    Collaborated with the marketer, content creator, and
+                    designers to deliver consistent and optimizing them for the
+                    Website’s user experience utilizing a variety of graphics,
+                    database, animation and other software(Adobe, Figma)
+                  </li>
+                  <li>
+                    Worked with stakeholders to define requirements and
+                    collaborated with marketer and designers to identify and
+                    solve complex technical problems
+                  </li>
+                </ul>
+              </div>
+
+              {/* The Coding Bull */}
+              <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700">
+                <h3 className="text-2xl font-semibold">The Coding Bull</h3>
+                <p className="text-gray-500 dark:text-gray-400">
+                  Burnaby, BC, CA
+                </p>
+                <p className="font-medium text-gray-400 dark:text-gray-300">
+                  Wordpress Developer • Feb 2021 - Aug 2021
+                </p>
+                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 dark:text-gray-200">
+                  <li>
+                    Wrote clean, modular, and well-documented code using
+                    appropriate programming languages such as WordPress(PHP),
+                    Elementor, JavaScript, React.js, Node.js, HTML&CSS and
+                    frameworks
+                  </li>
+                  <li>
+                    Used staging environments to thoroughly test new features,
+                    functionalities, and design changes before pushing them to
+                    live websites.
+                  </li>
+                  <li>
+                    Optimized application performance and ensure seamless user
+                    experience across different devices and browsers
+                  </li>
+                  <li>
+                    Conducted version-control and collaborations within dev-team
+                    using Github
+                  </li>
+                  <li>
+                    Utilized knowledges in WordPress to create custom themes,
+                    templates, and plugins that align with design mockups and
+                    functional requirements.
+                  </li>
+                  <li>
+                    Implemented accessibility, mobile responsive, and site speed
+                    optimizations and cross-browser testing before & after new
+                    project launch
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  );
+}
