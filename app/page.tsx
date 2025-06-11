@@ -3,6 +3,12 @@
 import React, { useState, useEffect } from "react";
 import Balatro from "./component/Balatro";
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
@@ -20,43 +26,155 @@ export default function Home() {
 
   return (
     <main>
-      <header className="fixed z-99 w-full">
+      <header className="fixed z-99 w-full top-0">
         <div className="top-line bg-black w-vw h-2.5"></div>
         <div className="header-container flex justify-items-start px-10 max-w-[1800px] mx-auto">
           <div className="header-logo-box bg-black">
             <img className="w-[100px] h-auto" src="/images/logo.svg" alt="" />
+            <svg
+              className="svg-corner absolute left-0 bottom-[-30px]"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clipPath="url(#clip0_310_2)">
+                <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z" fill="#000"></path>
+              </g>
+              <defs>
+                <clipPath id="clip0_310_2">
+                  <rect width="30" height="30" fill="white"></rect>
+                </clipPath>
+              </defs>
+            </svg>
+            <svg
+              className="svg-corner absolute right-[-30px] top-0"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clipPath="url(#clip0_310_2)">
+                <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z" fill="#000"></path>
+              </g>
+              <defs>
+                <clipPath id="clip0_310_2">
+                  <rect width="30" height="30" fill="white"></rect>
+                </clipPath>
+              </defs>
+            </svg>
           </div>
           <div className="">
             <nav className="navigation">
-              <a href="#project">Profject</a>
-              <a href="#project">About</a>
-              <a href="#project">Education</a>
+              <a href="#project" className="mx-2.5">
+                Profject
+              </a>
+              <a href="#project" className="mx-2.5">
+                About
+              </a>
+              <a href="#project" className="ml-2.5 mr-4">
+                Education
+              </a>
               <button
                 onClick={toggleDarkMode}
-                className="px-4 py-2 rounded-md bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white"
+                className="border-black rounded-full border-1 p-2"
               >
-                {isDarkMode ? "Light Mode" : "Dark Mode"}
+                <div
+                  className={` ${
+                    isDarkMode ? "lightmode text-white" : "darkmode text-black"
+                  }`}
+                ></div>
               </button>
             </nav>
           </div>
         </div>
       </header>
       <div
-        className={`min-h-screen ${
+        className={`min-h-screen mt-2.5 ${
           isDarkMode ? "bg-black text-white" : "bg-white text-black"
         }`}
       >
         <div className="hero-section">
           <div className="w-full max-w-[1800px] px-10 m-auto">
             <div className="flex justify-between gap-2.5 min-h-[630px] h-[95vh]">
-              <div className="hero-left relative w-full h-full rounded-4xl flex items-end">
+              <div className="hero-left relative max-w-full w-full h-full rounded-4xl flex items-end">
                 <Balatro
-                  isRotate={false}
-                  mouseInteraction={true}
-                  pixelFilter={1600}
+                  color={[0.5, 0.7, 1]}
+                  mouseReact={true}
+                  amplitude={0.1}
+                  speed={1.0}
                 />
+                <div className="content-box absolute pt-5 pr-5 left-0 max-w-1/2 w-full bg-black h-60 rounded-tr-[30px]">
+                  <h2 className="text-whit font-semibold">
+                    Creative and Experienced Web Developer
+                  </h2>
+                  <svg
+                    className="svg-corner corner-content-box-two top-[-30px] absolute -rotate-90"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clipPath="url(#clip0_310_2)">
+                      <path
+                        d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
+                        fill="#000"
+                      ></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_310_2">
+                        <rect width="30" height="30" fill="white"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <svg
+                    className="svg-corner corner-content-box-two right-[-30px] bottom-0 absolute -rotate-90"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clipPath="url(#clip0_310_2)">
+                      <path
+                        d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
+                        fill="#000"
+                      ></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_310_2">
+                        <rect width="30" height="30" fill="white"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
               </div>
-              <div className="flex flex-col justify-between gap-2.5 items-center h-full"></div>
+              <div className="hero-right flex flex-col justify-normal gap-2.5 items-center h-full flex-grow">
+                <div className="profile-img w-64">
+                  <img
+                    src="/images/IMG_2283.jpeg"
+                    alt="profile"
+                    className="rounded-full"
+                  />
+                </div>
+                <div className="swiper-box w-64 h-64">
+                  <Swiper
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    onSlideChange={() => console.log("slide change")}
+                    onSwiper={(swiper) => console.log(swiper)}
+                    className="w-full h-full" // 추가
+                  >
+                    <SwiperSlide>Slide 1</SwiperSlide>
+                    <SwiperSlide>Slide 2</SwiperSlide>
+                    <SwiperSlide>Slide 3</SwiperSlide>
+                    <SwiperSlide>Slide 4</SwiperSlide>
+                  </Swiper>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -65,12 +183,12 @@ export default function Home() {
           <div className="flex justify-end mb-4"></div>
 
           {/* Header/Hero Section - Simplified */}
-          <section className="text-center my-12">
+          <section className="text-center my-12 px-10">
             <p className="text-xl text-gray-400">Web Developer</p>
           </section>
 
           {/* Skills Section */}
-          <section className="my-12">
+          <section className="my-12 px-10">
             <h2 className="text-4xl font-bold mb-8 text-center">S K I L L S</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700">
@@ -102,7 +220,7 @@ export default function Home() {
           </section>
 
           {/* Experience Section */}
-          <section className="my-12">
+          <section className="my-12 px-10">
             <h2 className="text-4xl font-bold mb-8 text-center">
               E X P E R I E N C E
             </h2>

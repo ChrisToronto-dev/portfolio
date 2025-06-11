@@ -1,11 +1,21 @@
+@use "swiper/css";
 @import url("https://fonts.googleapis.com/css2?family=Questrial&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --color-toggle-light: #000;
+}
 
 body {
   font-family: "Roboto Mono", monospace;
 
+  h2 {
+    font-size: clamp(2.35rem, 2.114rem + 1vw, 3.75rem);
+  }
+
   .hero-left {
     canvas {
       border-radius: 30px;
+      position: absolute;
     }
   }
 
@@ -37,6 +47,55 @@ body {
       margin-right: 11px;
       position: relative;
       z-index: 20;
+    }
+
+    button {
+      div {
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        box-shadow: inset 8px -8px 0 0 var(--color-toggle-dark, #000);
+        transform: scale(1) rotate(-2deg);
+        transition: box-shadow 0.5s ease 0s, transform 0.4s ease 0.1s;
+
+        &.lightmode {
+          box-shadow: inset 32px -32px #000;
+          transform: scale(0.5) rotate(0);
+          transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s;
+
+          &:after {
+            transform: scale(1.5);
+            transition: all 0.5s ease 0.15s;
+          }
+        }
+
+        &:after {
+          content: "";
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          margin: -2px 0 0 -2px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          box-shadow: 0 -13px 0 var(--color-toggle-light, #f9f8f6),
+            0 13px 0 var(--color-toggle-light, #f9f8f6),
+            13px 0 0 var(--color-toggle-light, #f9f8f6),
+            -13px 0 0 var(--color-toggle-light, #f9f8f6),
+            9px 9px 0 var(--color-toggle-light, #f9f8f6),
+            -9px 9px 0 var(--color-toggle-light, #f9f8f6),
+            9px -9px 0 var(--color-toggle-light, #f9f8f6),
+            -9px -9px 0 var(--color-toggle-light, #f9f8f6);
+          transform: scale(0);
+          transition: all 0.3s ease;
+        }
+
+        &:before {
+          background: var(--color-toggle-light, #f9f8f6);
+          transition: all 0.3s ease 0.1s;
+        }
+      }
     }
   }
 }
