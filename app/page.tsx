@@ -5,6 +5,7 @@ import Balatro from "./component/Balatro";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
@@ -152,27 +153,86 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <div className="hero-right flex flex-col justify-normal gap-2.5 items-center h-full flex-grow">
-                <div className="profile-img w-64">
+              <div className="hero-right flex flex-col justify-normal gap-2.5 items-center h-full flex-grow relative">
+                <div className="profile-img w-64 rounded-full border-4 border-white">
                   <img
                     src="/images/IMG_2283.jpeg"
                     alt="profile"
-                    className="rounded-full"
+                    className="rounded-full border-1 border-black"
                   />
                 </div>
-                <div className="swiper-box w-64 h-64">
+                <div className="swiper-box w-64 h-full rounded-[30px]">
                   <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
                     onSlideChange={() => console.log("slide change")}
                     onSwiper={(swiper) => console.log(swiper)}
-                    className="w-full h-full" // 추가
+                    autoplay={{
+                      delay: 3000,
+                      disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay]}
+                    loop={true}
+                    className="w-full h-full bg-[#5c54f9] rounded-[30px] p-4"
                   >
-                    <SwiperSlide>Slide 1</SwiperSlide>
+                    <SwiperSlide>
+                      <img src="/images/web.svg" alt="" />
+                      <p>Devloped over 30 websites</p>
+                    </SwiperSlide>
                     <SwiperSlide>Slide 2</SwiperSlide>
                     <SwiperSlide>Slide 3</SwiperSlide>
                     <SwiperSlide>Slide 4</SwiperSlide>
                   </Swiper>
+                </div>
+                <div className="swiper-btn-box absolute right-0 bottom-0 z-10 rounded-tl-[35px] bg-black aspect-square w-[60px] flex items-end justify-end">
+                  <div className="blog-slider-button">
+                    <span className="w-[50px] aspect-square rounded-full flex items-center justify-center bg-black border-2 border-white">
+                      <img
+                        src="data:image/svg+xml,%3csvg%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.5%209.5H2.5M16.5%209.5L10.5%2015.5M16.5%209.5L10.5%203.5'%20stroke='white'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e"
+                        alt="arrow pointing right"
+                      />
+                    </span>
+                    <svg
+                      className="svg-corner corner-slider-button-one absolute top-[-30px] rotate-180 right-0"
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clipPath="url(#clip0_310_2)">
+                        <path
+                          d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
+                          fill="#000"
+                        ></path>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_310_2">
+                          <rect width="30" height="30" fill="white"></rect>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <svg
+                      className="svg-corner corner-slider-button-two absolute bottom-0 rotate-180 left-[-30px]"
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clipPath="url(#clip0_310_2)">
+                        <path
+                          d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
+                          fill="#000"
+                        ></path>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_310_2">
+                          <rect width="30" height="30" fill="white"></rect>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
