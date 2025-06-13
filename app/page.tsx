@@ -1,17 +1,26 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Balatro from "./component/Balatro";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/pagination";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const swiperRef = useRef<SwiperType | null>(null);
+
+  const handleNext = () => {
+    console.log("next");
+    swiperRef.current?.slideNext();
+  };
 
   useEffect(() => {
     if (isDarkMode) {
@@ -109,7 +118,7 @@ export default function Home() {
                 />
                 <div className="content-box absolute pt-5 pr-5 left-0 max-w-1/2 w-full bg-black h-60 rounded-tr-[30px]">
                   <h2 className="text-whit font-semibold">
-                    Creative and Experienced Web Developer
+                    Experienced Web Developer
                   </h2>
                   <svg
                     className="svg-corner corner-content-box-two top-[-30px] absolute -rotate-90"
@@ -151,6 +160,12 @@ export default function Home() {
                       </clipPath>
                     </defs>
                   </svg>
+                  <a
+                    className="scroll-indicator absolute bottom-0 left-0 border border-white p-4 rounded-full rotate-90"
+                    href="#about"
+                  >
+                    <img src="data:image/svg+xml,%3csvg%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.5%209.5H2.5M16.5%209.5L10.5%2015.5M16.5%209.5L10.5%203.5'%20stroke='white'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" />
+                  </a>
                 </div>
               </div>
               <div className="hero-right flex flex-col justify-normal gap-2.5 items-center h-full flex-grow relative">
@@ -166,27 +181,52 @@ export default function Home() {
                     spaceBetween={50}
                     slidesPerView={1}
                     onSlideChange={() => console.log("slide change")}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    onSwiper={(swiper) => {
+                      console.log(swiper);
+                      swiperRef.current = swiper;
+                    }}
                     autoplay={{
                       delay: 3000,
                       disableOnInteraction: false,
                     }}
-                    modules={[Autoplay]}
+                    pagination={{
+                      clickable: true,
+                      dynamicBullets: false,
+                      // type: 'fraction', // 숫자 형태 (예: 1/4)
+                      //type: "progressbar", // 프로그레스바 형태
+                    }}
+                    modules={[Pagination]}
                     loop={true}
                     className="w-full h-full bg-[#5c54f9] rounded-[30px] p-4"
                   >
                     <SwiperSlide>
-                      <img src="/images/web.svg" alt="" />
+                      <img src="/images/web-white.svg" alt="" />
                       <p>Devloped over 30 websites</p>
                     </SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
+                    <SwiperSlide>
+                      <img src="/images/laravel.svg" alt="" />
+                      <p>Devloped over 30 websites</p>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src="/images/react.svg" alt="" />
+                      <p>Devloped over 30 websites</p>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src="/images/nextjs.svg" alt="" />
+                      <p>Devloped over 30 websites</p>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src="/images/wordpress.svg" alt="" />
+                      <p>Devloped over 30 websites</p>
+                    </SwiperSlide>
                   </Swiper>
                 </div>
                 <div className="swiper-btn-box absolute right-0 bottom-0 z-10 rounded-tl-[35px] bg-black aspect-square w-[60px] flex items-end justify-end">
                   <div className="blog-slider-button">
-                    <span className="w-[50px] aspect-square rounded-full flex items-center justify-center bg-black border-2 border-white">
+                    <span
+                      onClick={handleNext}
+                      className="w-[50px] aspect-square rounded-full flex items-center justify-center bg-black border-2 border-white"
+                    >
                       <img
                         src="data:image/svg+xml,%3csvg%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.5%209.5H2.5M16.5%209.5L10.5%2015.5M16.5%209.5L10.5%203.5'%20stroke='white'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e"
                         alt="arrow pointing right"
@@ -280,7 +320,7 @@ export default function Home() {
           </section>
 
           {/* Experience Section */}
-          <section className="my-12 px-10">
+          <section className="my-12 px-10 mb-0">
             <h2 className="text-4xl font-bold mb-8 text-center">
               E X P E R I E N C E
             </h2>
