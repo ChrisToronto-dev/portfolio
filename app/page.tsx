@@ -7,6 +7,7 @@ import Balatro from "./component/Balatro";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
+import PortfolioTabs from "./component/PortfolioTabs";
 
 // Import Swiper styles
 import "swiper/css";
@@ -102,7 +103,7 @@ export default function Home() {
         </div>
       </header>
       <div
-        className={`min-h-screen mt-2.5 ${
+        className={`min-h-screen mt-2.5 pb-28 ${
           isDarkMode ? "bg-black text-white" : "bg-white text-black"
         }`}
       >
@@ -283,48 +284,86 @@ export default function Home() {
           <div className="flex justify-end mb-4"></div>
 
           {/* Header/Hero Section - Simplified */}
-          <section className="text-center my-12 px-10">
-            <p className="text-xl text-gray-400">Web Developer</p>
+          <section className="text-center my-28 px-10">
+            <p className="text-xl text-gray-400"></p>
           </section>
 
           {/* Skills Section */}
-          <section className="my-12 px-10">
+          <section className="my-28 px-10">
             <h2 className="text-4xl font-bold mb-8 text-center">S K I L L S</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700">
-                <h3 className="text-2xl font-semibold mb-4">Strong:</h3>
-                <p className="text-gray-300">
-                  WordPress, PHP, Elementor Pro, JavaScript (ES6+)/jQuery,
-                  HTML5, SASS, Express.js, RESTful API, MongoDB
-                </p>
+                <h3 className="text-2xl font-semibold mb-4">Strong</h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "WordPress",
+                    "PHP",
+                    "Elementor Pro",
+                    "JavaScript (ES6+)/jQuery",
+                    "HTML5",
+                    "SASS",
+                    "Express.js",
+                    "RESTful API",
+                    "MongoDB",
+                  ].map((skill) => (
+                    <div
+                      key={skill}
+                      className="flex items-center bg-[#5c54f9] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white hover:text-[#5c54f9] transition-colors duration-200 shadow-md"
+                    >
+                      {skill}
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700">
-                <h3 className="text-2xl font-semibold mb-4">Experienced:</h3>
-                <p className="text-gray-300 dark:text-gray-200">
-                  MVC, GraphQL, MySQL, Authentication (Portfolio:{" "}
-                  <a
-                    href="https://rosaa-portfolio.netlify.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 underline"
-                  >
-                    https://rosaa-portfolio.netlify.app/
-                  </a>
-                  )
-                </p>
-                <p className="text-gray-300">
-                  React.js, Next.js TypeScript, Git, Gulp, Node.js,
-                </p>
+              <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700 shadow-xl">
+                <h3 className="text-2xl font-semibold mb-4">Experienced</h3>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    "MVC",
+                    "GraphQL",
+                    "MySQL",
+                    "Authentication",
+                    "React.js",
+                    "Next.js",
+                    "TypeScript",
+                    "Git",
+                    "Gulp",
+                    "Node.js",
+                  ].map((skill) => (
+                    <div
+                      key={skill}
+                      className="flex items-center bg-gray-800 text-gray-200 px-4 py-2 rounded-lg text-sm hover:bg-gray-700 transition-colors duration-200 shadow-md"
+                    >
+                      {/* Placeholder Icon */}
+                      <svg
+                        className="w-4 h-4 mr-2 text-green-400"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                      {skill}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
 
+          {/* Portfolio Section */}
+          <PortfolioTabs />
+
           {/* Experience Section */}
-          <section className="my-12 px-10 mb-0">
+          <section className="my-28 px-10 mb-0">
             <h2 className="text-4xl font-bold mb-8 text-center">
               E X P E R I E N C E
             </h2>
-            <div className="space-y-8">
+            <div className="space-y-12">
               {/* White Canvas Design */}
               <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700">
                 <h3 className="text-2xl font-semibold">White Canvas Design</h3>
