@@ -203,12 +203,11 @@ const PortfolioTabs: React.FC = () => {
         P O R T F O L I O
       </h2>
 
-      {/* 탭 버튼들 */}
       <div className="flex justify-center mb-8 flex-wrap gap-2">
         {tabs.map((tab) => (
           <button
             key={tab}
-            className={`mx-2 py-3 px-6 rounded-full border-2 border-black dark:border-white transition-all duration-300 hover:scale-105 ${
+            className={`mx-2 py-3 px-6 rounded-full border-2 border-black dark:border-white cursor-pointer transition-all duration-300 hover:scale-105 ${
               activeTab === tab
                 ? "bg-black text-white dark:bg-white dark:text-black shadow-lg"
                 : "bg-transparent text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"

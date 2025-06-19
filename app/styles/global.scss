@@ -5,11 +5,6 @@
   --color-toggle-light: #000;
 }
 
-scss// 어떤 요소가 여백을 만드는지 확인
-* {
-  outline: 1px solid red !important;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -132,5 +127,29 @@ body {
         left: -30px;
       }
     }
+  }
+}
+
+.education-entry {
+  background-color: #1a202c; /* Darker background color */
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-family: "Roboto", sans-serif; /* Different font for the title */
+    font-weight: bold;
+    color: #cbd5e0; /* Lighter text color */
+  }
+
+  p {
+    color: #a0aec0; /* Slightly lighter text color for other text */
+  }
+
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #718096; /* Even lighter text color for list items */
   }
 }

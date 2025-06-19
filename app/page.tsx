@@ -90,7 +90,7 @@ export default function Home() {
               </a>
               <button
                 onClick={toggleDarkMode}
-                className="border-black rounded-full border-1 p-2"
+                className="border-black rounded-full border-1 p-2 cursor-pointer"
               >
                 <div
                   className={` ${
@@ -117,7 +117,7 @@ export default function Home() {
                   amplitude={0.1}
                   speed={1.0}
                 />
-                <div className="content-box absolute pt-5 pr-5 left-0 max-w-1/2 w-full bg-black h-60 rounded-tr-[30px]">
+                <div className="content-box absolute pt-5 pr-5 left-0 max-w-1/2 w-full bg-white dark:bg-black h-60 rounded-tr-[30px]">
                   <h2 className="text-whit font-semibold">
                     Experienced Web Developer
                   </h2>
@@ -223,7 +223,7 @@ export default function Home() {
                   </Swiper>
                 </div>
                 <div className="swiper-btn-box absolute right-0 bottom-0 z-10 rounded-tl-[35px] bg-black aspect-square w-[60px] flex items-end justify-end">
-                  <div className="blog-slider-button">
+                  <div className="blog-slider-button cursor-pointer">
                     <span
                       onClick={handleNext}
                       className="w-[50px] aspect-square rounded-full flex items-center justify-center bg-black border-2 border-white"
@@ -448,6 +448,48 @@ export default function Home() {
                     optimizations and cross-browser testing before & after new
                     project launch
                   </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Education Section */}
+          <section className="my-28 px-10">
+            <h2 className="text-4xl font-bold mb-8 text-center">
+              E D U C A T I O N
+            </h2>
+            <div className="space-y-12">
+              {/* Example Education Entry */}
+              <div className="education-entry">
+                <h3 className="text-2xl font-semibold">
+                  University of Example
+                </h3>
+                <p className="text-gray-500">City, State</p>
+                <p className="font-medium text-gray-400 dark:text-gray-300">
+                  Bachelor of Science in Computer Science • 2018 - 2022
+                </p>
+                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 dark:text-gray-200">
+                  <li>
+                    Relevant coursework: Data Structures and Algorithms,
+                    Database Systems, Software Engineering
+                  </li>
+                  <li>GPA: 3.8</li>
+                  <li>
+                    Dean's List: Fall 2020, Spring 2021, Fall 2021, Spring 2022
+                  </li>
+                </ul>
+              </div>
+              {/* Example Education Entry 2 */}
+              <div className="education-entry">
+                <h3 className="text-2xl font-semibold">Example High School</h3>
+                <p className="text-gray-500">City, State</p>
+                <p className="font-medium text-gray-400 dark:text-gray-300">
+                  High School Diploma • 2014 - 2018
+                </p>
+                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 dark:text-gray-200">
+                  <li>Relevant coursework: Math, Science, English</li>
+                  <li>GPA: 4.0</li>
+                  <li>Valedictorian</li>
                 </ul>
               </div>
             </div>
