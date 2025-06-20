@@ -26,8 +26,10 @@ export default function Home() {
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
     } else {
       document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
     }
   }, [isDarkMode]);
 
@@ -38,10 +40,19 @@ export default function Home() {
   return (
     <main>
       <header className="fixed z-99 w-full top-0">
-        <div className="top-line bg-black w-vw h-2.5"></div>
+        <div className="top-line bg-black light-bg w-vw h-2.5"></div>
         <div className="header-container flex justify-items-start px-10 max-w-[1800px] mx-auto">
-          <div className="header-logo-box bg-black">
-            <img className="w-[100px] h-auto" src="/images/logo.svg" alt="" />
+          <div className="header-logo-box bg-black light-bg">
+            <img
+              className="w-[100px] h-auto light-hidden"
+              src="/images/logo.svg"
+              alt=""
+            />
+            <img
+              className="w-[100px] h-auto hidden light-visible"
+              src="/images/logo_black.svg"
+              alt=""
+            />
             <svg
               className="svg-corner absolute left-0 bottom-[-30px]"
               width="30"
@@ -103,7 +114,7 @@ export default function Home() {
         </div>
       </header>
       <div
-        className={`min-h-screen mt-2.5 pb-28 ${
+        className={`min-h-screen mt-2.5 pb-28 light-bg ${
           isDarkMode ? "bg-black text-white" : "bg-white text-black"
         }`}
       >
@@ -117,7 +128,7 @@ export default function Home() {
                   amplitude={0.1}
                   speed={1.0}
                 />
-                <div className="content-box absolute pt-5 pr-5 left-0 max-w-1/2 w-full bg-white dark:bg-black h-60 rounded-tr-[30px]">
+                <div className="content-box absolute pt-5 pr-5 left-0 max-w-1/2 w-full bg-black light-bg h-60 rounded-tr-[30px]">
                   <h2 className="text-whit font-semibold">
                     Experienced Web Developer
                   </h2>
@@ -162,7 +173,7 @@ export default function Home() {
                     </defs>
                   </svg>
                   <a
-                    className="scroll-indicator absolute bottom-0 left-0 border border-white p-4 rounded-full rotate-90"
+                    className="scroll-indicator absolute bottom-0 left-0 border border-white p-4 rounded-full rotate-90 dark-bg"
                     href="#about"
                   >
                     <img src="data:image/svg+xml,%3csvg%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.5%209.5H2.5M16.5%209.5L10.5%2015.5M16.5%209.5L10.5%203.5'%20stroke='white'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" />
@@ -222,7 +233,7 @@ export default function Home() {
                     </SwiperSlide>
                   </Swiper>
                 </div>
-                <div className="swiper-btn-box absolute right-0 bottom-0 z-10 rounded-tl-[35px] bg-black aspect-square w-[60px] flex items-end justify-end">
+                <div className="swiper-btn-box absolute right-0 bottom-0 z-10 rounded-tl-[35px] bg-black light-bg aspect-square w-[60px] flex items-end justify-end">
                   <div className="blog-slider-button cursor-pointer">
                     <span
                       onClick={handleNext}
@@ -292,7 +303,7 @@ export default function Home() {
           <section className="my-28 px-10">
             <h2 className="text-4xl font-bold mb-8 text-center">S K I L L S</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700">
+              <div className="bg-gray-900 p-6 rounded-lg bg-gray-700">
                 <h3 className="text-2xl font-semibold mb-4">Strong</h3>
                 <div className="flex flex-wrap gap-2">
                   {[
@@ -315,7 +326,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700 shadow-xl">
+              <div className="bg-gray-900 p-6 rounded-lg bg-gray-700 shadow-xl">
                 <h3 className="text-2xl font-semibold mb-4">Experienced</h3>
                 <div className="flex flex-wrap gap-3">
                   {[
@@ -365,13 +376,13 @@ export default function Home() {
             </h2>
             <div className="space-y-12">
               {/* White Canvas Design */}
-              <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700">
+              <div className="bg-gray-900 p-6 rounded-lg bg-gray-700">
                 <h3 className="text-2xl font-semibold">White Canvas Design</h3>
                 <p className="text-gray-500">Langley Twp, BC, CA</p>
-                <p className="font-medium text-gray-400 dark:text-gray-300">
+                <p className="font-medium text-gray-400 text-gray-300">
                   Wordpress Developer • Oct 2021 - Dec 2024
                 </p>
-                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 dark:text-gray-200">
+                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 text-gray-200">
                   <li>
                     Developed and maintained in-house and customer-facing
                     web-applications using WordPress(PHP), Shopify(Liquid) ,
@@ -410,15 +421,13 @@ export default function Home() {
               </div>
 
               {/* The Coding Bull */}
-              <div className="bg-gray-900 p-6 rounded-lg dark:bg-gray-700">
+              <div className="bg-gray-900 p-6 rounded-lg bg-gray-700">
                 <h3 className="text-2xl font-semibold">The Coding Bull</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Burnaby, BC, CA
-                </p>
-                <p className="font-medium text-gray-400 dark:text-gray-300">
+                <p className="text-gray-500 text-gray-400">Burnaby, BC, CA</p>
+                <p className="font-medium text-gray-400 text-gray-300">
                   Wordpress Developer • Feb 2021 - Aug 2021
                 </p>
-                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 dark:text-gray-200">
+                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 text-gray-200">
                   <li>
                     Wrote clean, modular, and well-documented code using
                     appropriate programming languages such as WordPress(PHP),
@@ -465,10 +474,10 @@ export default function Home() {
                   University of Example
                 </h3>
                 <p className="text-gray-500">City, State</p>
-                <p className="font-medium text-gray-400 dark:text-gray-300">
+                <p className="font-medium text-gray-400 text-gray-300">
                   Bachelor of Science in Computer Science • 2018 - 2022
                 </p>
-                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 dark:text-gray-200">
+                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 text-gray-200">
                   <li>
                     Relevant coursework: Data Structures and Algorithms,
                     Database Systems, Software Engineering
@@ -483,10 +492,10 @@ export default function Home() {
               <div className="education-entry">
                 <h3 className="text-2xl font-semibold">Example High School</h3>
                 <p className="text-gray-500">City, State</p>
-                <p className="font-medium text-gray-400 dark:text-gray-300">
+                <p className="font-medium text-gray-400 text-gray-300">
                   High School Diploma • 2014 - 2018
                 </p>
-                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 dark:text-gray-200">
+                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 text-gray-200">
                   <li>Relevant coursework: Math, Science, English</li>
                   <li>GPA: 4.0</li>
                   <li>Valedictorian</li>

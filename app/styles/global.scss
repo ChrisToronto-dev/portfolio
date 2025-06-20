@@ -1,4 +1,5 @@
 @use "swiper/css";
+@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Questrial&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
@@ -151,5 +152,48 @@ body {
     list-style-type: disc;
     margin-left: 20px;
     color: #718096; /* Even lighter text color for list items */
+  }
+}
+
+.light {
+  body {
+    .light-bg {
+      background-color: white;
+    }
+
+    .light-visible {
+      display: block;
+    }
+
+    .light-border {
+      border: 2px solid #000;
+    }
+
+    .dark-border {
+      border: 2px solid #fff;
+    }
+
+    .hover-dark {
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+
+    .light-hidden {
+      display: none;
+    }
+    .light-text-white {
+      color: white;
+    }
+    .dark-bg {
+      background-color: black;
+    }
+
+    svg.svg-corner {
+      path {
+        fill: white !important;
+      }
+    }
   }
 }

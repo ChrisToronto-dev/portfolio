@@ -184,7 +184,6 @@ const PortfolioTabs: React.FC = () => {
 
   const tabs = Object.keys(portfolioData);
 
-  // PortfolioItem을 ChromaItem으로 변환하는 함수
   const convertToChromaItems = (items: PortfolioItem[]): ChromaItem[] => {
     return items.map((item) => ({
       image: item.image,
@@ -199,18 +198,16 @@ const PortfolioTabs: React.FC = () => {
 
   return (
     <section className="my-12 px-10">
-      <h2 className="text-4xl font-bold mb-8 text-center text-black dark:text-white">
-        P O R T F O L I O
-      </h2>
+      <h2 className="text-4xl font-bold mb-8 text-center">P O R T F O L I O</h2>
 
       <div className="flex justify-center mb-8 flex-wrap gap-2">
         {tabs.map((tab) => (
           <button
             key={tab}
-            className={`mx-2 py-3 px-6 rounded-full border-2 border-black dark:border-white cursor-pointer transition-all duration-300 hover:scale-105 ${
+            className={`mx-2 py-3 px-6 rounded-full border-2 border-white cursor-pointer transition-all duration-300 hover:scale-105 ${
               activeTab === tab
-                ? "bg-black text-white dark:bg-white dark:text-black shadow-lg"
-                : "bg-transparent text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+                ? "bg-white shadow-lg text-black light-text-white dark-bg border-2 border-white light-border"
+                : "bg-transparent hover:bg-gray-100 hover:text-black light-border hover-dark"
             }`}
             onClick={() => setActiveTab(tab)}
           >
@@ -220,7 +217,7 @@ const PortfolioTabs: React.FC = () => {
       </div>
 
       {/* ChromaGrid를 사용한 포트폴리오 아이템들 */}
-      <div className="w-full">
+      <div className="w-full portfolio-section">
         <ChromaGrid
           items={convertToChromaItems(portfolioData[activeTab])}
           radius={300}
