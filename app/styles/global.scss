@@ -1,5 +1,4 @@
 @use "swiper/css";
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Questrial&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
@@ -161,6 +160,18 @@ body {
       background-color: white;
     }
 
+    .light-gray {
+      background-color: #e5e7eb;
+    }
+
+    .light-text-gray {
+      color: #374151;
+
+      * {
+        color: #374151;
+      }
+    }
+
     .light-visible {
       display: block;
     }
@@ -194,6 +205,10 @@ body {
       path {
         fill: white !important;
       }
+    }
+    .card-layer {
+      background: unset !important;
+      backdrop-filter: unset !important;
     }
   }
 }

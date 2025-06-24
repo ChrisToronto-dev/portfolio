@@ -151,7 +151,7 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
       ref={rootRef}
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
-      className={`relative w-full h-full grid grid-cols-12 gap-12 ${className}`}
+      className={`portfolio-card-div relative w-full h-full grid grid-cols-12 gap-12 ${className}`}
       style={
         {
           "--r": `${radius}px`,
@@ -175,7 +175,7 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
           }
         >
           <div
-            className="absolute inset-0 pointer-events-none transition-opacity duration-500 z-20 opacity-0 group-hover:opacity-100"
+            className="card-layer absolute inset-0 pointer-events-none transition-opacity duration-500 z-20 opacity-0 group-hover:opacity-100"
             style={{
               background:
                 "radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 70%)",
@@ -206,7 +206,7 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
         </article>
       ))}
       <div
-        className="absolute inset-0 pointer-events-none z-30"
+        className="card-layer absolute inset-0 pointer-events-none z-30"
         style={{
           backdropFilter: "grayscale(1) brightness(0.78)",
           WebkitBackdropFilter: "grayscale(1) brightness(0.78)",
@@ -219,7 +219,7 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
       />
       <div
         ref={fadeRef}
-        className="absolute inset-0 pointer-events-none transition-opacity duration-[250ms] z-40"
+        className="card-layer absolute inset-0 pointer-events-none transition-opacity duration-[250ms] z-40"
         style={{
           backdropFilter: "grayscale(1) brightness(0.78)",
           WebkitBackdropFilter: "grayscale(1) brightness(0.78)",

@@ -1,11 +1,14 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Balatro from "./component/Balatro";
+import LoadingScreen from "./component/LoadingScreen";
+import MobileMenu from "./component/MobileMenu";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import PortfolioTabs from "./component/PortfolioTabs";
 
@@ -15,6 +18,8 @@ import "swiper/css/pagination";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const swiperRef = useRef<SwiperType | null>(null);
 
@@ -37,19 +42,48 @@ export default function Home() {
     setIsDarkMode(!isDarkMode);
   };
 
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <main>
-      <header className="fixed z-99 w-full top-0">
-        <div className="top-line bg-black light-bg w-vw h-2.5"></div>
-        <div className="header-container flex justify-items-start px-10 max-w-[1800px] mx-auto">
-          <div className="header-logo-box bg-black light-bg">
+      <AnimatePresence>
+        {isLoading && (
+          <LoadingScreen onLoadingComplete={handleLoadingComplete} />
+        )}
+      </AnimatePresence>
+      <motion.header
+        className="fixed z-99 w-full top-0"
+        initial={{ x: "-100%", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+      >
+        <motion.div
+          className="top-line bg-black light-bg w-vw h-2.5"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          style={{ transformOrigin: "left" }}
+        ></motion.div>
+        <div className="header-container flex justify-start items-center px-4 sm:px-6 lg:px-10 max-w-[1800px] mx-auto">
+          <motion.div
+            className="header-logo-box bg-black light-bg"
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+          >
             <img
-              className="w-[100px] h-auto light-hidden"
+              className="w-16 sm:w-20 lg:w-[100px] h-auto light-hidden"
               src="/images/logo.svg"
               alt=""
             />
             <img
-              className="w-[100px] h-auto hidden light-visible"
+              className="w-16 sm:w-20 lg:w-[100px] h-auto hidden light-visible"
               src="/images/logo_black.svg"
               alt=""
             />
@@ -87,49 +121,132 @@ export default function Home() {
                 </clipPath>
               </defs>
             </svg>
-          </div>
-          <div className="">
-            <nav className="navigation">
-              <a href="#project" className="mx-2.5">
-                Profject
-              </a>
-              <a href="#project" className="mx-2.5">
-                About
-              </a>
-              <a href="#project" className="ml-2.5 mr-4">
-                Education
-              </a>
-              <button
-                onClick={toggleDarkMode}
-                className="border-black rounded-full border-1 p-2 cursor-pointer"
+          </motion.div>
+          <div className="flex items-center gap-4 ml-auto lg:ml-0">
+            {/* Desktop Navigation */}
+            <motion.div
+              className="hidden lg:block"
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
+            >
+              <nav className="navigation flex items-center">
+                <motion.a
+                  href="#project"
+                  className="mx-2.5"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 1.1, ease: "easeOut" }}
+                >
+                  Profject
+                </motion.a>
+                <motion.a
+                  href="#project"
+                  className="mx-2.5"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 1.2, ease: "easeOut" }}
+                >
+                  About
+                </motion.a>
+                <motion.a
+                  href="#project"
+                  className="ml-2.5 mr-4"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 1.3, ease: "easeOut" }}
+                >
+                  Education
+                </motion.a>
+                <motion.button
+                  onClick={toggleDarkMode}
+                  className="border-black rounded-full border-1 p-2 cursor-pointer"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 1.4, ease: "easeOut" }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <div
+                    className={` ${
+                      isDarkMode
+                        ? "lightmode text-white"
+                        : "darkmode text-black"
+                    }`}
+                  ></div>
+                </motion.button>
+              </nav>
+            </motion.div>
+
+            {/* Mobile Hamburger Button */}
+            <motion.button
+              onClick={toggleMobileMenu}
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 1.2, ease: "easeOut" }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <motion.svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
               >
-                <div
-                  className={` ${
-                    isDarkMode ? "lightmode text-white" : "darkmode text-black"
-                  }`}
-                ></div>
-              </button>
-            </nav>
+                {isMobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </motion.svg>
+            </motion.button>
           </div>
         </div>
-      </header>
+      </motion.header>
+
+      {/* Mobile Menu */}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        isDarkMode={isDarkMode}
+        onToggleDarkMode={toggleDarkMode}
+      />
+
       <div
         className={`min-h-screen mt-2.5 pb-28 light-bg ${
           isDarkMode ? "bg-black text-white" : "bg-white text-black"
         }`}
       >
-        <div className="hero-section">
-          <div className="w-full max-w-[1800px] px-10 m-auto">
-            <div className="flex justify-between gap-2.5 min-h-[630px] h-[95vh]">
-              <div className="hero-left relative max-w-full w-full h-full rounded-4xl flex items-end">
+        <motion.div
+          className="hero-section"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className="w-full max-w-[1800px] px-4 sm:px-6 lg:px-10 m-auto">
+            <div className="flex flex-col lg:flex-row justify-between gap-4 lg:gap-2.5 min-h-[600px] sm:min-h-[700px] h-[95vh] lg:h-[95vh]">
+              <div className="hero-left relative max-w-full w-full h-full lg:h-full rounded-4xl flex items-end order-2 lg:order-1">
                 <Balatro
                   color={[0.5, 0.7, 1]}
                   mouseReact={true}
                   amplitude={0.1}
                   speed={1.0}
                 />
-                <div className="content-box absolute pt-5 pr-5 left-0 max-w-1/2 w-full bg-black light-bg h-60 rounded-tr-[30px]">
-                  <h2 className="text-whit font-semibold">
+                <div className="content-box absolute pt-3 sm:pt-5 pr-3 sm:pr-5 left-0 max-w-full lg:max-w-1/2 w-full bg-black light-bg h-48 sm:h-60 rounded-tr-[20px] sm:rounded-tr-[30px]">
+                  <h2 className="text-white font-semibold text-lg sm:text-xl lg:text-2xl">
                     Experienced Web Developer
                   </h2>
                   <svg
@@ -180,15 +297,15 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="hero-right flex flex-col justify-normal gap-2.5 items-center h-full flex-grow relative">
-                <div className="profile-img w-64 rounded-full border-4 border-white">
+              <div className="hero-right flex flex-col lg:flex-col justify-center lg:justify-normal gap-4 lg:gap-2.5 items-center h-80 sm:h-96 lg:h-full flex-grow relative order-1 lg:order-2">
+                <div className="profile-img w-32 sm:w-48 lg:w-64 rounded-full border-2 sm:border-4 border-white">
                   <img
                     src="/images/IMG_2283.jpeg"
                     alt="profile"
                     className="rounded-full border-1 border-black"
                   />
                 </div>
-                <div className="swiper-box w-64 h-full rounded-[30px]">
+                <div className="swiper-box w-full sm:w-48 lg:w-64 h-48 sm:h-64 lg:h-full rounded-[20px] sm:rounded-[30px]">
                   <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
@@ -209,35 +326,59 @@ export default function Home() {
                     }}
                     modules={[Pagination]}
                     loop={true}
-                    className="w-full h-full bg-[#5c54f9] rounded-[30px] p-4"
+                    className="w-full h-full bg-[#5c54f9] rounded-[20px] sm:rounded-[30px] p-2 sm:p-4"
                   >
-                    <SwiperSlide>
-                      <img src="/images/web-white.svg" alt="" />
-                      <p>Devloped over 30 websites</p>
+                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
+                      <img
+                        src="/images/web-white.svg"
+                        alt=""
+                        className="w-12 h-12 sm:w-16 sm:h-16 mb-3"
+                      />
+                      <p className="text-sm sm:text-base">
+                        Developed over 30 websites
+                      </p>
                     </SwiperSlide>
-                    <SwiperSlide>
-                      <img src="/images/laravel.svg" alt="" />
-                      <p>Devloped over 30 websites</p>
+                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
+                      <img
+                        src="/images/laravel.svg"
+                        alt=""
+                        className="w-12 h-12 sm:w-16 sm:h-16 mb-3"
+                      />
+                      <p className="text-sm sm:text-base">
+                        Laravel Framework Expert
+                      </p>
                     </SwiperSlide>
-                    <SwiperSlide>
-                      <img src="/images/react.svg" alt="" />
-                      <p>Devloped over 30 websites</p>
+                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
+                      <img
+                        src="/images/react.svg"
+                        alt=""
+                        className="w-12 h-12 sm:w-16 sm:h-16 mb-3"
+                      />
+                      <p className="text-sm sm:text-base">React.js Developer</p>
                     </SwiperSlide>
-                    <SwiperSlide>
-                      <img src="/images/nextjs.svg" alt="" />
-                      <p>Devloped over 30 websites</p>
+                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
+                      <img
+                        src="/images/nextjs.svg"
+                        alt=""
+                        className="w-12 h-12 sm:w-16 sm:h-16 mb-3"
+                      />
+                      <p className="text-sm sm:text-base">Next.js Specialist</p>
                     </SwiperSlide>
-                    <SwiperSlide>
-                      <img src="/images/wordpress.svg" alt="" />
-                      <p>Devloped over 30 websites</p>
+                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
+                      <img
+                        src="/images/wordpress.svg"
+                        alt=""
+                        className="w-12 h-12 sm:w-16 sm:h-16 mb-3"
+                      />
+                      <p className="text-sm sm:text-base">WordPress Expert</p>
                     </SwiperSlide>
                   </Swiper>
                 </div>
-                <div className="swiper-btn-box absolute right-0 bottom-0 z-10 rounded-tl-[35px] bg-black light-bg aspect-square w-[60px] flex items-end justify-end">
+                <div className="swiper-btn-box absolute right-0 bottom-0 z-10 rounded-tl-[25px] sm:rounded-tl-[35px] bg-black light-bg aspect-square w-[40px] sm:w-[60px] flex items-end justify-end">
                   <div className="blog-slider-button cursor-pointer">
                     <span
                       onClick={handleNext}
-                      className="w-[50px] aspect-square rounded-full flex items-center justify-center bg-black border-2 border-white"
+                      className="w-[30px] sm:w-[50px] aspect-square rounded-full flex items-center justify-center bg-black border-1 sm:border-2 border-white"
                     >
                       <img
                         src="data:image/svg+xml,%3csvg%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.5%209.5H2.5M16.5%209.5L10.5%2015.5M16.5%209.5L10.5%203.5'%20stroke='white'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e"
@@ -289,22 +430,32 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
         <div className="container mx-auto">
           {/* Dark Mode Toggle */}
           <div className="flex justify-end mb-4"></div>
 
           {/* Header/Hero Section - Simplified */}
-          <section className="text-center my-28 px-10">
-            <p className="text-xl text-gray-400"></p>
+          <section className="text-center my-16 sm:my-20 lg:my-28 px-4 sm:px-6 lg:px-10">
+            <p className="text-lg sm:text-xl text-gray-400"></p>
           </section>
 
           {/* Skills Section */}
-          <section className="my-28 px-10">
-            <h2 className="text-4xl font-bold mb-8 text-center">S K I L L S</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="bg-gray-900 p-6 rounded-lg bg-gray-700">
-                <h3 className="text-2xl font-semibold mb-4">Strong</h3>
+          <motion.section
+            className="my-16 sm:my-20 lg:my-28 px-4 sm:px-6 lg:px-10"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center">
+              S K I L L S
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-bg light-gray shadow-xl">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">
+                  Strong
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {[
                     "WordPress",
@@ -319,16 +470,18 @@ export default function Home() {
                   ].map((skill) => (
                     <div
                       key={skill}
-                      className="flex items-center bg-[#5c54f9] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white hover:text-[#5c54f9] transition-colors duration-200 shadow-md"
+                      className="flex items-center bg-[#5c54f9] text-white px-2 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-white hover:text-[#5c54f9] transition-colors duration-200 shadow-md"
                     >
                       {skill}
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="bg-gray-900 p-6 rounded-lg bg-gray-700 shadow-xl">
-                <h3 className="text-2xl font-semibold mb-4">Experienced</h3>
-                <div className="flex flex-wrap gap-3">
+              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-gray shadow-xl">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">
+                  Experienced
+                </h3>
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {[
                     "MVC",
                     "GraphQL",
@@ -343,11 +496,11 @@ export default function Home() {
                   ].map((skill) => (
                     <div
                       key={skill}
-                      className="flex items-center bg-gray-800 text-gray-200 px-4 py-2 rounded-lg text-sm hover:bg-gray-700 transition-colors duration-200 shadow-md"
+                      className="flex items-center bg-gray-800 text-gray-200 px-2 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm hover:bg-gray-700 transition-colors duration-200 shadow-md"
                     >
                       {/* Placeholder Icon */}
                       <svg
-                        className="w-4 h-4 mr-2 text-green-400"
+                        className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-green-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -364,25 +517,42 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </section>
+          </motion.section>
 
           {/* Portfolio Section */}
-          <PortfolioTabs />
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <PortfolioTabs />
+          </motion.div>
 
           {/* Experience Section */}
-          <section className="my-28 px-10 mb-0">
-            <h2 className="text-4xl font-bold mb-8 text-center">
+          <motion.section
+            className="my-16 sm:my-20 lg:my-28 px-4 sm:px-6 lg:px-10 mb-0"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center">
               E X P E R I E N C E
             </h2>
-            <div className="space-y-12">
+            <div className="space-y-6 sm:space-y-8 lg:space-y-12">
               {/* White Canvas Design */}
-              <div className="bg-gray-900 p-6 rounded-lg bg-gray-700">
-                <h3 className="text-2xl font-semibold">White Canvas Design</h3>
-                <p className="text-gray-500">Langley Twp, BC, CA</p>
-                <p className="font-medium text-gray-400 text-gray-300">
+              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-gray light-text-gray shadow-xl">
+                <h3 className="text-xl sm:text-2xl font-semibold">
+                  White Canvas Design
+                </h3>
+                <p className="text-sm sm:text-base text-gray-400">
+                  Langley Twp, BC, CA
+                </p>
+                <p className="font-medium text-sm sm:text-base text-gray-400">
                   Wordpress Developer • Oct 2021 - Dec 2024
                 </p>
-                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 text-gray-200">
+                <ul className="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-xs sm:text-sm lg:text-base text-gray-300">
                   <li>
                     Developed and maintained in-house and customer-facing
                     web-applications using WordPress(PHP), Shopify(Liquid) ,
@@ -421,13 +591,17 @@ export default function Home() {
               </div>
 
               {/* The Coding Bull */}
-              <div className="bg-gray-900 p-6 rounded-lg bg-gray-700">
-                <h3 className="text-2xl font-semibold">The Coding Bull</h3>
-                <p className="text-gray-500 text-gray-400">Burnaby, BC, CA</p>
-                <p className="font-medium text-gray-400 text-gray-300">
+              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-gray light-text-gray shadow-xl">
+                <h3 className="text-xl sm:text-2xl font-semibold">
+                  The Coding Bull
+                </h3>
+                <p className="text-sm sm:text-base text-gray-400">
+                  Burnaby, BC, CA
+                </p>
+                <p className="font-medium text-sm sm:text-base text-gray-400">
                   Wordpress Developer • Feb 2021 - Aug 2021
                 </p>
-                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 text-gray-200">
+                <ul className="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-xs sm:text-sm lg:text-base text-gray-300">
                   <li>
                     Wrote clean, modular, and well-documented code using
                     appropriate programming languages such as WordPress(PHP),
@@ -460,49 +634,62 @@ export default function Home() {
                 </ul>
               </div>
             </div>
-          </section>
+          </motion.section>
 
           {/* Education Section */}
-          <section className="my-28 px-10">
-            <h2 className="text-4xl font-bold mb-8 text-center">
+          <motion.section
+            className="my-16 sm:my-20 lg:my-28 px-4 sm:px-6 lg:px-10"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center">
               E D U C A T I O N
             </h2>
-            <div className="space-y-12">
+            <div className="space-y-6 sm:space-y-8 lg:space-y-12">
               {/* Example Education Entry */}
-              <div className="education-entry">
-                <h3 className="text-2xl font-semibold">
+              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-gray light-text-gray shadow-xl">
+                <h3 className="text-xl sm:text-2xl font-semibold">
                   University of Example
                 </h3>
-                <p className="text-gray-500">City, State</p>
-                <p className="font-medium text-gray-400 text-gray-300">
+                <p className="text-sm sm:text-base text-gray-400">
+                  City, State
+                </p>
+                <p className="font-medium text-sm sm:text-base text-gray-400">
                   Bachelor of Science in Computer Science • 2018 - 2022
                 </p>
-                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 text-gray-200">
+                <ul className="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-xs sm:text-sm lg:text-base text-gray-300">
                   <li>
                     Relevant coursework: Data Structures and Algorithms,
                     Database Systems, Software Engineering
                   </li>
                   <li>GPA: 3.8</li>
                   <li>
-                    Dean's List: Fall 2020, Spring 2021, Fall 2021, Spring 2022
+                    Dean&apos;s List: Fall 2020, Spring 2021, Fall 2021, Spring
+                    2022
                   </li>
                 </ul>
               </div>
               {/* Example Education Entry 2 */}
-              <div className="education-entry">
-                <h3 className="text-2xl font-semibold">Example High School</h3>
-                <p className="text-gray-500">City, State</p>
-                <p className="font-medium text-gray-400 text-gray-300">
+              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-gray light-text-gray shadow-xl">
+                <h3 className="text-xl sm:text-2xl font-semibold">
+                  Example High School
+                </h3>
+                <p className="text-sm sm:text-base text-gray-400">
+                  City, State
+                </p>
+                <p className="font-medium text-sm sm:text-base text-gray-400">
                   High School Diploma • 2014 - 2018
                 </p>
-                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300 text-gray-200">
+                <ul className="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-xs sm:text-sm lg:text-base text-gray-300">
                   <li>Relevant coursework: Math, Science, English</li>
                   <li>GPA: 4.0</li>
                   <li>Valedictorian</li>
                 </ul>
               </div>
             </div>
-          </section>
+          </motion.section>
         </div>
       </div>
     </main>
