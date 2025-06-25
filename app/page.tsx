@@ -70,7 +70,7 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
           style={{ transformOrigin: "left" }}
         ></motion.div>
-        <div className="header-container flex justify-start items-center px-4 sm:px-6 lg:px-10 max-w-[1800px] mx-auto">
+        <div className="header-container flex justify-start items-center px-0 sm:px-6 lg:px-10 max-w-[1800px] mx-auto">
           <motion.div
             className="header-logo-box bg-black light-bg"
             initial={{ x: -50, opacity: 0 }}
@@ -138,10 +138,10 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.1, ease: "easeOut" }}
                 >
-                  Profject
+                  Project
                 </motion.a>
                 <motion.a
-                  href="#project"
+                  href="#about"
                   className="mx-2.5"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -150,7 +150,7 @@ export default function Home() {
                   About
                 </motion.a>
                 <motion.a
-                  href="#project"
+                  href="#education"
                   className="ml-2.5 mr-4"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -181,7 +181,7 @@ export default function Home() {
             {/* Mobile Hamburger Button */}
             <motion.button
               onClick={toggleMobileMenu}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="lg:hidden p-2 rounded-lg bg-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 1.2, ease: "easeOut" }}
@@ -237,17 +237,18 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="w-full max-w-[1800px] px-4 sm:px-6 lg:px-10 m-auto">
-            <div className="flex flex-col lg:flex-row justify-between gap-4 lg:gap-2.5 min-h-[600px] sm:min-h-[700px] h-[95vh] lg:h-[95vh]">
-              <div className="hero-left relative max-w-full w-full h-full lg:h-full rounded-4xl flex items-end order-2 lg:order-1">
+            <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-2.5 min-h-screen lg:min-h-[700px] h-screen lg:h-[95vh]">
+              <div className="hero-left relative max-w-full w-full h-1/2 lg:h-full rounded-2xl lg:rounded-4xl flex items-end order-2 lg:order-1">
                 <Balatro
                   color={[0.5, 0.7, 1]}
                   mouseReact={true}
                   amplitude={0.1}
                   speed={1.0}
                 />
-                <div className="content-box absolute pt-3 sm:pt-5 pr-3 sm:pr-5 left-0 max-w-full lg:max-w-1/2 w-full bg-black light-bg h-48 sm:h-60 rounded-tr-[20px] sm:rounded-tr-[30px]">
-                  <h2 className="text-white font-semibold text-lg sm:text-xl lg:text-2xl">
-                    Experienced Web Developer
+                <div className="content-box absolute pt-4 sm:pt-5 pr-4 sm:pr-5 left-0 max-w-full lg:max-w-1/2 w-full bg-black light-bg h-20 sm:h-60 rounded-tr-2xl sm:rounded-tr-[30px] flex items-center lg:items-start">
+                  <h2 className="text-white font-bold text-xl sm:text-xl lg:text-2xl leading-tight">
+                    Experienced
+                    <br className="hidden lg:block" /> Web Developer
                   </h2>
                   <svg
                     className="svg-corner corner-content-box-two top-[-30px] absolute -rotate-90"
@@ -297,15 +298,15 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="hero-right flex flex-col lg:flex-col justify-center lg:justify-normal gap-4 lg:gap-2.5 items-center h-80 sm:h-96 lg:h-full flex-grow relative order-1 lg:order-2">
-                <div className="profile-img w-32 sm:w-48 lg:w-64 rounded-full border-2 sm:border-4 border-white">
+              <div className="hero-right flex flex-col justify-center lg:justify-normal gap-6 lg:gap-2.5 items-center h-1/2 lg:h-full flex-grow relative order-1 lg:order-2 py-8 lg:py-0">
+                <div className="profile-img w-40 sm:w-48 lg:w-64 rounded-full border-4 border-white shadow-2xl">
                   <img
                     src="/images/IMG_2283.jpeg"
                     alt="profile"
                     className="rounded-full border-1 border-black"
                   />
                 </div>
-                <div className="swiper-box w-full sm:w-48 lg:w-64 h-48 sm:h-64 lg:h-full rounded-[20px] sm:rounded-[30px]">
+                <div className="swiper-box w-full max-w-sm sm:w-48 lg:w-64 h-32 sm:h-64 lg:h-full rounded-2xl sm:rounded-[30px] shadow-xl">
                   <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
@@ -442,78 +443,67 @@ export default function Home() {
 
           {/* Skills Section */}
           <motion.section
-            className="my-16 sm:my-20 lg:my-28 px-4 sm:px-6 lg:px-10"
+            className="py-16 lg:py-24 px-6 lg:px-10"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center">
-              S K I L L S
-            </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
-              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-bg light-gray shadow-xl">
-                <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">
-                  Strong
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "WordPress",
-                    "PHP",
-                    "Elementor Pro",
-                    "JavaScript (ES6+)/jQuery",
-                    "HTML5",
-                    "SASS",
-                    "Express.js",
-                    "RESTful API",
-                    "MongoDB",
-                  ].map((skill) => (
-                    <div
-                      key={skill}
-                      className="flex items-center bg-[#5c54f9] text-white px-2 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-white hover:text-[#5c54f9] transition-colors duration-200 shadow-md"
-                    >
-                      {skill}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-gray shadow-xl">
-                <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">
-                  Experienced
-                </h3>
-                <div className="flex flex-wrap gap-2 sm:gap-3">
-                  {[
-                    "MVC",
-                    "GraphQL",
-                    "MySQL",
-                    "Authentication",
-                    "React.js",
-                    "Next.js",
-                    "TypeScript",
-                    "Git",
-                    "Gulp",
-                    "Node.js",
-                  ].map((skill) => (
-                    <div
-                      key={skill}
-                      className="flex items-center bg-gray-800 text-gray-200 px-2 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm hover:bg-gray-700 transition-colors duration-200 shadow-md"
-                    >
-                      {/* Placeholder Icon */}
-                      <svg
-                        className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-green-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider">
+                SKILLS
+              </h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <div className="p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
+                  <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+                    Strong
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
+                    {[
+                      "WordPress",
+                      "PHP",
+                      "Elementor Pro",
+                      "JavaScript (ES6+)/jQuery",
+                      "HTML5",
+                      "SASS",
+                      "Express.js",
+                      "RESTful API",
+                      "MongoDB",
+                    ].map((skill) => (
+                      <div
+                        key={skill}
+                        className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors duration-200"
                       >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                      {skill}
-                    </div>
-                  ))}
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
+                  <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+                    Experienced
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
+                    {[
+                      "MVC",
+                      "GraphQL",
+                      "MySQL",
+                      "Authentication",
+                      "React.js",
+                      "Next.js",
+                      "TypeScript",
+                      "Git",
+                      "Gulp",
+                      "Node.js",
+                    ].map((skill) => (
+                      <div
+                        key={skill}
+                        className="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-medium hover:bg-green-200 dark:hover:bg-green-800 transition-colors duration-200"
+                      >
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -531,162 +521,225 @@ export default function Home() {
 
           {/* Experience Section */}
           <motion.section
-            className="my-16 sm:my-20 lg:my-28 px-4 sm:px-6 lg:px-10 mb-0"
+            className="py-16 lg:py-24 px-6 lg:px-10"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center">
-              E X P E R I E N C E
+            <h2 className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider">
+              EXPERIENCE
             </h2>
-            <div className="space-y-6 sm:space-y-8 lg:space-y-12">
-              {/* White Canvas Design */}
-              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-gray light-text-gray shadow-xl">
-                <h3 className="text-xl sm:text-2xl font-semibold">
-                  White Canvas Design
-                </h3>
-                <p className="text-sm sm:text-base text-gray-400">
-                  Langley Twp, BC, CA
-                </p>
-                <p className="font-medium text-sm sm:text-base text-gray-400">
-                  Wordpress Developer • Oct 2021 - Dec 2024
-                </p>
-                <ul className="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-xs sm:text-sm lg:text-base text-gray-300">
-                  <li>
-                    Developed and maintained in-house and customer-facing
-                    web-applications using WordPress(PHP), Shopify(Liquid) ,
-                    Elementor, JavaScript/jQuery, HTML&CSS, Ajax , React.js,
-                    Node.js, and other programming languages upon needed
-                  </li>
-                  <li>
-                    Created responsive custom WordPress themes from scratch
-                    primarily using PHP, MAMP, JavaScript, JQuery, Advanced
-                    Custom Fields (ACF Pro or CPT UI plugins), custom post
-                    types, HTML5, SASS, CSS framework like Bulma , and Gulp for
-                    compiling/compressing
-                  </li>
-                  <li>
-                    Monitored website performance(SEO, page speed etc.),
-                    identified issues, and implemented necessary fixes or
-                    improvements and conducted version control using Github
-                  </li>
-                  <li>
-                    Troubleshoot issues related to website, plugins, and theme
-                    investigating through the hosting platforms(WPEngine, Danory
-                    or cPanel) and File Manager, PHP Admin
-                  </li>
-                  <li>
-                    Collaborated with the marketer, content creator, and
-                    designers to deliver consistent and optimizing them for the
-                    Website’s user experience utilizing a variety of graphics,
-                    database, animation and other software(Adobe, Figma)
-                  </li>
-                  <li>
-                    Worked with stakeholders to define requirements and
-                    collaborated with marketer and designers to identify and
-                    solve complex technical problems
-                  </li>
-                </ul>
-              </div>
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-600 hidden lg:block"></div>
 
-              {/* The Coding Bull */}
-              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-gray light-text-gray shadow-xl">
-                <h3 className="text-xl sm:text-2xl font-semibold">
-                  The Coding Bull
-                </h3>
-                <p className="text-sm sm:text-base text-gray-400">
-                  Burnaby, BC, CA
-                </p>
-                <p className="font-medium text-sm sm:text-base text-gray-400">
-                  Wordpress Developer • Feb 2021 - Aug 2021
-                </p>
-                <ul className="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-xs sm:text-sm lg:text-base text-gray-300">
-                  <li>
-                    Wrote clean, modular, and well-documented code using
-                    appropriate programming languages such as WordPress(PHP),
-                    Elementor, JavaScript, React.js, Node.js, HTML&CSS and
-                    frameworks
-                  </li>
-                  <li>
-                    Used staging environments to thoroughly test new features,
-                    functionalities, and design changes before pushing them to
-                    live websites.
-                  </li>
-                  <li>
-                    Optimized application performance and ensure seamless user
-                    experience across different devices and browsers
-                  </li>
-                  <li>
-                    Conducted version-control and collaborations within dev-team
-                    using Github
-                  </li>
-                  <li>
-                    Utilized knowledges in WordPress to create custom themes,
-                    templates, and plugins that align with design mockups and
-                    functional requirements.
-                  </li>
-                  <li>
-                    Implemented accessibility, mobile responsive, and site speed
-                    optimizations and cross-browser testing before & after new
-                    project launch
-                  </li>
-                </ul>
+              <div className="space-y-8">
+                {/* White Canvas Design */}
+                <div className="relative">
+                  {/* Timeline dot */}
+                  <div className="absolute -left-2 top-8 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900 hidden lg:block"></div>
+                  <div className="lg:ml-12 p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-bold text-lg">W</span>
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                          White Canvas Design
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 mb-1">
+                          Langley Twp, BC, CA
+                        </p>
+                        <p className="font-semibold text-blue-600 dark:text-blue-400 mb-4">
+                          Wordpress Developer • Oct 2021 - Dec 2024
+                        </p>
+                      </div>
+                    </div>
+                    <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                      <li>
+                        Developed and maintained in-house and customer-facing
+                        web-applications using WordPress(PHP), Shopify(Liquid) ,
+                        Elementor, JavaScript/jQuery, HTML&CSS, Ajax , React.js,
+                        Node.js, and other programming languages upon needed
+                      </li>
+                      <li>
+                        Created responsive custom WordPress themes from scratch
+                        primarily using PHP, MAMP, JavaScript, JQuery, Advanced
+                        Custom Fields (ACF Pro or CPT UI plugins), custom post
+                        types, HTML5, SASS, CSS framework like Bulma , and Gulp
+                        for compiling/compressing
+                      </li>
+                      <li>
+                        Monitored website performance(SEO, page speed etc.),
+                        identified issues, and implemented necessary fixes or
+                        improvements and conducted version control using Github
+                      </li>
+                      <li>
+                        Troubleshoot issues related to website, plugins, and
+                        theme investigating through the hosting
+                        platforms(WPEngine, Danory or cPanel) and File Manager,
+                        PHP Admin
+                      </li>
+                      <li>
+                        Collaborated with the marketer, content creator, and
+                        designers to deliver consistent and optimizing them for
+                        the Website’s user experience utilizing a variety of
+                        graphics, database, animation and other software(Adobe,
+                        Figma)
+                      </li>
+                      <li>
+                        Worked with stakeholders to define requirements and
+                        collaborated with marketer and designers to identify and
+                        solve complex technical problems
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* The Coding Bull */}
+                <div className="relative">
+                  {/* Timeline dot */}
+                  <div className="absolute -left-2 top-8 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-gray-900 hidden lg:block"></div>
+                  <div className="lg:ml-12 p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-bold text-lg">T</span>
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                          The Coding Bull
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 mb-1">
+                          Burnaby, BC, CA
+                        </p>
+                        <p className="font-semibold text-blue-600 dark:text-blue-400 mb-4">
+                          Wordpress Developer • Feb 2021 - Aug 2021
+                        </p>
+                      </div>
+                    </div>
+                    <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                      <li>
+                        Wrote clean, modular, and well-documented code using
+                        appropriate programming languages such as
+                        WordPress(PHP), Elementor, JavaScript, React.js,
+                        Node.js, HTML&CSS and frameworks
+                      </li>
+                      <li>
+                        Used staging environments to thoroughly test new
+                        features, functionalities, and design changes before
+                        pushing them to live websites.
+                      </li>
+                      <li>
+                        Optimized application performance and ensure seamless
+                        user experience across different devices and browsers
+                      </li>
+                      <li>
+                        Conducted version-control and collaborations within
+                        dev-team using Github
+                      </li>
+                      <li>
+                        Utilized knowledges in WordPress to create custom
+                        themes, templates, and plugins that align with design
+                        mockups and functional requirements.
+                      </li>
+                      <li>
+                        Implemented accessibility, mobile responsive, and site
+                        speed optimizations and cross-browser testing before &
+                        after new project launch
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.section>
 
           {/* Education Section */}
           <motion.section
-            className="my-16 sm:my-20 lg:my-28 px-4 sm:px-6 lg:px-10"
+            className="py-16 lg:py-24 px-6 lg:px-10"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center">
-              E D U C A T I O N
-            </h2>
-            <div className="space-y-6 sm:space-y-8 lg:space-y-12">
-              {/* Example Education Entry */}
-              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-gray light-text-gray shadow-xl">
-                <h3 className="text-xl sm:text-2xl font-semibold">
-                  University of Example
-                </h3>
-                <p className="text-sm sm:text-base text-gray-400">
-                  City, State
-                </p>
-                <p className="font-medium text-sm sm:text-base text-gray-400">
-                  Bachelor of Science in Computer Science • 2018 - 2022
-                </p>
-                <ul className="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-xs sm:text-sm lg:text-base text-gray-300">
-                  <li>
-                    Relevant coursework: Data Structures and Algorithms,
-                    Database Systems, Software Engineering
-                  </li>
-                  <li>GPA: 3.8</li>
-                  <li>
-                    Dean&apos;s List: Fall 2020, Spring 2021, Fall 2021, Spring
-                    2022
-                  </li>
-                </ul>
-              </div>
-              {/* Example Education Entry 2 */}
-              <div className="p-4 sm:p-6 rounded-lg bg-gray-700 light-gray light-text-gray shadow-xl">
-                <h3 className="text-xl sm:text-2xl font-semibold">
-                  Example High School
-                </h3>
-                <p className="text-sm sm:text-base text-gray-400">
-                  City, State
-                </p>
-                <p className="font-medium text-sm sm:text-base text-gray-400">
-                  High School Diploma • 2014 - 2018
-                </p>
-                <ul className="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-xs sm:text-sm lg:text-base text-gray-300">
-                  <li>Relevant coursework: Math, Science, English</li>
-                  <li>GPA: 4.0</li>
-                  <li>Valedictorian</li>
-                </ul>
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider">
+                EDUCATION
+              </h2>
+              <div className="relative">
+                {/* Timeline line */}
+                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500 to-blue-600 hidden lg:block"></div>
+
+                <div className="space-y-8">
+                  {/* Example Education Entry */}
+                  <div className="relative">
+                    {/* Timeline dot */}
+                    <div className="absolute -left-2 top-8 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-gray-900 hidden lg:block"></div>
+                    <div className="lg:ml-12 p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <span className="text-white font-bold text-lg">
+                            🎓
+                          </span>
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                            University of Example
+                          </h3>
+                          <p className="text-gray-600 dark:text-gray-300 mb-1">
+                            City, State
+                          </p>
+                          <p className="font-semibold text-green-600 dark:text-green-400 mb-4">
+                            Bachelor of Science in Computer Science • 2018 -
+                            2022
+                          </p>
+                        </div>
+                      </div>
+                      <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                        <li>
+                          Relevant coursework: Data Structures and Algorithms,
+                          Database Systems, Software Engineering
+                        </li>
+                        <li>GPA: 3.8</li>
+                        <li>
+                          Dean&apos;s List: Fall 2020, Spring 2021, Fall 2021,
+                          Spring 2022
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Example Education Entry 2 */}
+                  <div className="relative">
+                    {/* Timeline dot */}
+                    <div className="absolute -left-2 top-8 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900 hidden lg:block"></div>
+                    <div className="lg:ml-12 p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <span className="text-white font-bold text-lg">
+                            🏫
+                          </span>
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                            Example High School
+                          </h3>
+                          <p className="text-gray-600 dark:text-gray-300 mb-1">
+                            City, State
+                          </p>
+                          <p className="font-semibold text-blue-600 dark:text-blue-400 mb-4">
+                            High School Diploma • 2014 - 2018
+                          </p>
+                        </div>
+                      </div>
+                      <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                        <li>Relevant coursework: Math, Science, English</li>
+                        <li>GPA: 4.0</li>
+                        <li>Valedictorian</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.section>
