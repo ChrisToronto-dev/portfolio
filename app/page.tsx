@@ -58,21 +58,21 @@ export default function Home() {
         )}
       </AnimatePresence>
       <motion.header
-        className="fixed z-99 w-full top-0"
+        className="fixed z-99 w-full top-0 overflow-hidden"
         initial={{ x: "-100%", opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
       >
         <motion.div
-          className="top-line bg-black light-bg w-vw h-2.5"
+          className="top-line bg-black light-bg w-full h-2.5"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
           style={{ transformOrigin: "left" }}
         ></motion.div>
-        <div className="header-container flex justify-start items-center px-0 sm:px-6 lg:px-10 max-w-[1800px] mx-auto">
+        <div className="header-container flex justify-start items-center px-4 sm:px-6 lg:px-10 max-w-[1800px] mx-auto overflow-hidden">
           <motion.div
-            className="header-logo-box bg-black light-bg"
+            className="header-logo-box bg-black light-bg relative overflow-hidden mr-2"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
@@ -246,7 +246,7 @@ export default function Home() {
                   speed={1.0}
                 />
                 <div className="content-box absolute pt-4 sm:pt-5 pr-4 sm:pr-5 left-0 max-w-full lg:max-w-1/2 w-full bg-black light-bg h-20 sm:h-60 rounded-tr-2xl sm:rounded-tr-[30px] flex items-center lg:items-start">
-                  <h2 className="text-white font-bold text-xl sm:text-xl lg:text-2xl leading-tight">
+                  <h2 className="text-white font-bold text-xl sm:text-xl lg:text-2xl light-text-gray leading-tight">
                     Experienced
                     <br className="hidden lg:block" /> Web Developer
                   </h2>
@@ -271,7 +271,7 @@ export default function Home() {
                     </defs>
                   </svg>
                   <svg
-                    className="svg-corner corner-content-box-two right-[-30px] bottom-0 absolute -rotate-90"
+                    className="svg-corner corner-content-box-two right-0 lg:right-[-30px] bottom-0 absolute -rotate-90"
                     width="30"
                     height="30"
                     viewBox="0 0 30 30"
@@ -291,7 +291,7 @@ export default function Home() {
                     </defs>
                   </svg>
                   <a
-                    className="scroll-indicator absolute bottom-0 left-0 border border-white p-4 rounded-full rotate-90 dark-bg"
+                    className="scroll-indicator absolute right-0 lg:right-[unset] top-14 lg:top-[unset] lg:bottom-0 lg:left-0 border border-white p-2 lg:p-4 rounded-full rotate-90 dark-bg"
                     href="#about"
                   >
                     <img src="data:image/svg+xml,%3csvg%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.5%209.5H2.5M16.5%209.5L10.5%2015.5M16.5%209.5L10.5%203.5'%20stroke='white'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" />
@@ -306,7 +306,7 @@ export default function Home() {
                     className="rounded-full border-1 border-black"
                   />
                 </div>
-                <div className="swiper-box w-full max-w-sm sm:w-48 lg:w-64 h-32 sm:h-64 lg:h-full rounded-2xl sm:rounded-[30px] shadow-xl">
+                <div className="swiper-box w-full max-w-sm sm:w-48 lg:w-64 h-32 sm:h-64 lg:h-full rounded-2xl sm:rounded-[30px]">
                   <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
@@ -333,43 +333,31 @@ export default function Home() {
                       <img
                         src="/images/web-white.svg"
                         alt=""
-                        className="w-12 h-12 sm:w-16 sm:h-16 mb-3"
+                        className="mb-3"
                       />
                       <p className="text-sm sm:text-base">
                         Developed over 30 websites
                       </p>
                     </SwiperSlide>
                     <SwiperSlide className="flex flex-col items-center justify-center text-center">
-                      <img
-                        src="/images/laravel.svg"
-                        alt=""
-                        className="w-12 h-12 sm:w-16 sm:h-16 mb-3"
-                      />
+                      <img src="/images/laravel.svg" alt="" className="mb-3" />
                       <p className="text-sm sm:text-base">
                         Laravel Framework Expert
                       </p>
                     </SwiperSlide>
                     <SwiperSlide className="flex flex-col items-center justify-center text-center">
-                      <img
-                        src="/images/react.svg"
-                        alt=""
-                        className="w-12 h-12 sm:w-16 sm:h-16 mb-3"
-                      />
+                      <img src="/images/react.svg" alt="" className="mb-3" />
                       <p className="text-sm sm:text-base">React.js Developer</p>
                     </SwiperSlide>
                     <SwiperSlide className="flex flex-col items-center justify-center text-center">
-                      <img
-                        src="/images/nextjs.svg"
-                        alt=""
-                        className="w-12 h-12 sm:w-16 sm:h-16 mb-3"
-                      />
+                      <img src="/images/nextjs.svg" alt="" className="mb-3" />
                       <p className="text-sm sm:text-base">Next.js Specialist</p>
                     </SwiperSlide>
                     <SwiperSlide className="flex flex-col items-center justify-center text-center">
                       <img
                         src="/images/wordpress.svg"
                         alt=""
-                        className="w-12 h-12 sm:w-16 sm:h-16 mb-3"
+                        className="mb-3"
                       />
                       <p className="text-sm sm:text-base">WordPress Expert</p>
                     </SwiperSlide>
