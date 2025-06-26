@@ -36,7 +36,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             onClick={onClose}
           />
           <motion.div
-            className={`fixed top-0 right-0 w-80 h-full z-50 shadow-xl ${
+            className={`fixed top-0 right-0 w-80 h-full z-40 shadow-xl ${
               isDarkMode ? "bg-black text-white" : "bg-white text-black"
             }`}
             initial={{ x: "100%" }}

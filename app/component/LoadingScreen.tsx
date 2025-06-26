@@ -35,7 +35,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-50 bg-black flex items-center justify-center"
+      className="fixed inset-0 z-20 bg-black flex items-center justify-center"
     >
       <div className="text-center">
         <motion.div
@@ -51,7 +51,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
           />
           <h1 className="text-2xl font-bold text-white">Portfolio</h1>
         </motion.div>
-        
+
         <div className="w-64 mx-auto">
           <div className="bg-gray-800 rounded-full h-2 mb-4">
             <motion.div
@@ -63,7 +63,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
           </div>
           <p className="text-white text-sm">{Math.round(progress)}%</p>
         </div>
-        
+
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}

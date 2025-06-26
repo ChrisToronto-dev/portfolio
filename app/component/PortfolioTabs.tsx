@@ -29,6 +29,16 @@ const portfolioData: PortfolioData = {
       gradient: "linear-gradient(145deg, #21759B, #000)",
     },
     {
+      name: "WordPress Site 1",
+      description: "Modern corporate website with custom theme",
+      url: "https://example.com/wp1",
+      techStack: ["WordPress", "PHP", "Elementor"],
+      image:
+        "https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=225&fit=crop",
+      borderColor: "#21759B",
+      gradient: "linear-gradient(145deg, #21759B, #000)",
+    },
+    {
       name: "WordPress Site 2",
       description: "E-commerce platform with WooCommerce",
       url: "https://example.com/wp2",
@@ -36,7 +46,7 @@ const portfolioData: PortfolioData = {
       image:
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=225&fit=crop",
       borderColor: "#464646",
-      gradient: "linear-gradient(180deg, #464646, #000)",
+      gradient: "linear-gradient(135deg, #61DAFB, #000)",
     },
     {
       name: "WordPress Blog",
@@ -69,6 +79,16 @@ const portfolioData: PortfolioData = {
         "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=225&fit=crop",
       borderColor: "#FF2D20",
       gradient: "linear-gradient(195deg, #FF2D20, #000)",
+    },
+    {
+      name: "Laravel Dashboard",
+      description: "Admin dashboard with analytics",
+      url: "https://example.com/laravel3",
+      techStack: ["Laravel", "PHP", "Chart.js"],
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=225&fit=crop",
+      borderColor: "#FB503B",
+      gradient: "linear-gradient(225deg, #FB503B, #000)",
     },
     {
       name: "Laravel Dashboard",
@@ -122,7 +142,7 @@ const portfolioData: PortfolioData = {
       image:
         "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=225&fit=crop",
       borderColor: "#000000",
-      gradient: "linear-gradient(210deg, #000000, #FFFFFF)",
+      gradient: "linear-gradient(195deg, #7C3AED, #000)",
     },
     {
       name: "Next.js Blog",
@@ -198,13 +218,15 @@ const PortfolioTabs: React.FC = () => {
 
   return (
     <section className="my-12 px-10">
-      <h2 className="text-4xl font-bold mb-8 text-center">P O R T F O L I O</h2>
+      <h2 id="portfolio" className="text-4xl font-bold mb-8 text-center">
+        P O R T F O L I O
+      </h2>
 
-      <div className="flex justify-center mb-8 flex-wrap gap-2">
+      <div className="flex justify-center mb-8 flex-wrap gap-2 z-30">
         {tabs.map((tab) => (
           <button
             key={tab}
-            className={`mx-2 py-3 px-6 rounded-full border-2 border-white cursor-pointer transition-all duration-300 hover:scale-105 ${
+            className={`mx-2 py-3 px-6 rounded-full border-2 border-white z-60 cursor-pointer transition-all duration-300 hover:scale-105 ${
               activeTab === tab
                 ? "bg-white shadow-lg text-black light-text-white dark-bg border-2 border-white light-border"
                 : "bg-transparent hover:bg-gray-100 hover:text-black light-border hover-dark"

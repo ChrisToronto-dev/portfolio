@@ -58,7 +58,7 @@ export default function Home() {
         )}
       </AnimatePresence>
       <motion.header
-        className="fixed z-99 w-full top-0 overflow-hidden"
+        className="fixed z-50 w-full top-0"
         initial={{ x: "-100%", opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
@@ -72,7 +72,7 @@ export default function Home() {
         ></motion.div>
         <div className="header-container flex justify-start items-center px-4 sm:px-6 lg:px-10 max-w-[1800px] mx-auto overflow-hidden">
           <motion.div
-            className="header-logo-box bg-black light-bg relative overflow-hidden mr-2"
+            className="header-logo-box bg-black light-bg relative mr-2"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
@@ -132,22 +132,22 @@ export default function Home() {
             >
               <nav className="navigation flex items-center">
                 <motion.a
-                  href="#project"
+                  href="#portfolio"
                   className="mx-2.5"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.1, ease: "easeOut" }}
                 >
-                  Project
+                  Portfolio
                 </motion.a>
                 <motion.a
-                  href="#about"
+                  href="#experience"
                   className="mx-2.5"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.2, ease: "easeOut" }}
                 >
-                  About
+                  Experience
                 </motion.a>
                 <motion.a
                   href="#education"
@@ -245,10 +245,9 @@ export default function Home() {
                   amplitude={0.1}
                   speed={1.0}
                 />
-                <div className="content-box absolute pt-4 sm:pt-5 pr-4 sm:pr-5 left-0 max-w-full lg:max-w-1/2 w-full bg-black light-bg h-20 sm:h-60 rounded-tr-2xl sm:rounded-tr-[30px] flex items-center lg:items-start">
-                  <h2 className="text-white font-bold text-xl sm:text-xl lg:text-2xl light-text-gray leading-tight">
-                    Experienced
-                    <br className="hidden lg:block" /> Web Developer
+                <div className="content-box absolute pt-4 sm:pt-5 pr-4 sm:pr-5 left-0 max-w-full lg:max-w-1/2 w-full bg-black light-bg h-30 lg:h-60 rounded-tr-2xl sm:rounded-tr-[30px] flex items-center lg:items-start">
+                  <h2 className="text-white font-bold text-xl sm:text-xl lg:text-2xl light-text-gray leading-tigh relative top-10 md:top-0">
+                    Focused on scalable, pixel-perfect web application builds
                   </h2>
                   <svg
                     className="svg-corner corner-content-box-two top-[-30px] absolute -rotate-90"
@@ -291,14 +290,14 @@ export default function Home() {
                     </defs>
                   </svg>
                   <a
-                    className="scroll-indicator absolute right-0 lg:right-[unset] top-14 lg:top-[unset] lg:bottom-0 lg:left-0 border border-white p-2 lg:p-4 rounded-full rotate-90 dark-bg"
+                    className="hidden lg:block scroll-indicator absolute right-0 lg:right-[60px] top-48 lg:top-[unset] lg:bottom-[10px] lg:left-[unset] border border-white p-2 lg:p-4 rounded-full rotate-90 dark-bg"
                     href="#about"
                   >
                     <img src="data:image/svg+xml,%3csvg%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.5%209.5H2.5M16.5%209.5L10.5%2015.5M16.5%209.5L10.5%203.5'%20stroke='white'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" />
                   </a>
                 </div>
               </div>
-              <div className="hero-right flex flex-col justify-center lg:justify-normal gap-6 lg:gap-2.5 items-center h-1/2 lg:h-full flex-grow relative order-1 lg:order-2 py-8 lg:py-0">
+              <div className="hero-right flex flex-col justify-center lg:justify-normal gap-6 lg:gap-2.5 items-center h-full flex-grow relative order-1 lg:order-2 py-8 lg:py-0">
                 <div className="profile-img w-40 sm:w-48 lg:w-64 rounded-full border-4 border-white shadow-2xl">
                   <img
                     src="/images/IMG_2283.jpeg"
@@ -306,7 +305,7 @@ export default function Home() {
                     className="rounded-full border-1 border-black"
                   />
                 </div>
-                <div className="swiper-box w-full max-w-sm sm:w-48 lg:w-64 h-32 sm:h-64 lg:h-full rounded-2xl sm:rounded-[30px]">
+                <div className="swiper-box w-full max-w-sm lg:w-64 h-full rounded-2xl sm:rounded-[30px]">
                   <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
@@ -336,22 +335,9 @@ export default function Home() {
                         className="mb-3"
                       />
                       <p className="text-sm sm:text-base">
-                        Developed over 30 websites
+                        Developed over 30 websites using WordPress, Laravel,
+                        Veuw, and React.js
                       </p>
-                    </SwiperSlide>
-                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
-                      <img src="/images/laravel.svg" alt="" className="mb-3" />
-                      <p className="text-sm sm:text-base">
-                        Laravel Framework Expert
-                      </p>
-                    </SwiperSlide>
-                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
-                      <img src="/images/react.svg" alt="" className="mb-3" />
-                      <p className="text-sm sm:text-base">React.js Developer</p>
-                    </SwiperSlide>
-                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
-                      <img src="/images/nextjs.svg" alt="" className="mb-3" />
-                      <p className="text-sm sm:text-base">Next.js Specialist</p>
                     </SwiperSlide>
                     <SwiperSlide className="flex flex-col items-center justify-center text-center">
                       <img
@@ -359,11 +345,35 @@ export default function Home() {
                         alt=""
                         className="mb-3"
                       />
-                      <p className="text-sm sm:text-base">WordPress Expert</p>
+                      <p className="text-sm sm:text-base">
+                        WordPress Specialist with 5+ years of experience in
+                        custom themes, plugins, and site optimization.
+                      </p>
+                    </SwiperSlide>
+                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
+                      <img src="/images/laravel.svg" alt="" className="mb-3" />
+                      <p className="text-sm sm:text-base">
+                        Laravel Framework Expert with 5+ years of experience
+                        building large-scale web applications.
+                      </p>
+                    </SwiperSlide>
+                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
+                      <img src="/images/react.svg" alt="" className="mb-3" />
+                      <p className="text-sm sm:text-base">
+                        Proficient in React.js, with solid experience building
+                        dynamic frontend interfaces.
+                      </p>
+                    </SwiperSlide>
+                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
+                      <img src="/images/nextjs.svg" alt="" className="mb-3" />
+                      <p className="text-sm sm:text-base">
+                        Experienced with Next.js for modern, fast-performing web
+                        apps.
+                      </p>
                     </SwiperSlide>
                   </Swiper>
                 </div>
-                <div className="swiper-btn-box absolute right-0 bottom-0 z-10 rounded-tl-[25px] sm:rounded-tl-[35px] bg-black light-bg aspect-square w-[40px] sm:w-[60px] flex items-end justify-end">
+                <div className="swiper-btn-box absolute right-0 bottom-0 z-10 rounded-tl-[25px] sm:rounded-tl-[35px] bg-black light-bg aspect-square w-[40px] sm:w-[60px] md:flex hidden items-end justify-end">
                   <div className="blog-slider-button cursor-pointer">
                     <span
                       onClick={handleNext}
@@ -438,7 +448,10 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
           >
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider">
+              <h2
+                id="skills"
+                className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider"
+              >
                 SKILLS
               </h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -449,14 +462,15 @@ export default function Home() {
                   <div className="flex flex-wrap gap-3">
                     {[
                       "WordPress",
+                      "Laravel",
                       "PHP",
                       "Elementor Pro",
-                      "JavaScript (ES6+)/jQuery",
+                      "Sage 10",
+                      "JavaScript (ES6+)",
                       "HTML5",
                       "SASS",
-                      "Express.js",
+                      "MySQL",
                       "RESTful API",
-                      "MongoDB",
                     ].map((skill) => (
                       <div
                         key={skill}
@@ -475,14 +489,12 @@ export default function Home() {
                     {[
                       "MVC",
                       "GraphQL",
-                      "MySQL",
-                      "Authentication",
                       "React.js",
                       "Next.js",
+                      "Node.js",
                       "TypeScript",
                       "Git",
                       "Gulp",
-                      "Node.js",
                     ].map((skill) => (
                       <div
                         key={skill}
@@ -515,7 +527,10 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h2 className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider">
+            <h2
+              id="experience"
+              className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider"
+            >
               EXPERIENCE
             </h2>
             <div className="relative">
@@ -652,7 +667,10 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
           >
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider">
+              <h2
+                id="education"
+                className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider"
+              >
                 EDUCATION
               </h2>
               <div className="relative">
