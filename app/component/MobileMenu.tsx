@@ -8,6 +8,7 @@ interface MobileMenuProps {
   onClose: () => void;
   isDarkMode: boolean;
   onToggleDarkMode: () => void;
+  isAnimationComplete: boolean;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
@@ -15,6 +16,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   onClose,
   isDarkMode,
   onToggleDarkMode,
+  isAnimationComplete,
 }) => {
   const menuItems = [
     { name: "Project", href: "#project" },
@@ -23,6 +25,28 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     { name: "Experience", href: "#experience" },
     { name: "Education", href: "#education" },
   ];
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    
+    // 메뉴 닫기는 항상 실행
+    
+    const href = e.currentTarget.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const headerHeight = 140;
+        const elementPosition = targetElement.offsetTop - headerHeight;
+        
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+    onClose();
+  };
 
   return (
     <AnimatePresence>
@@ -54,9 +78,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   key={item.name}
                   href={item.href}
                   className="px-6 py-4 text-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border-b border-gray-100 dark:border-gray-800"
-                  onClick={() => {
-                    onClose();
-                  }}
+                  onClick={handleAnchorClick}
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}

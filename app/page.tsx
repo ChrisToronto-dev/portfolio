@@ -20,6 +20,7 @@ export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 
   const swiperRef = useRef<SwiperType | null>(null);
 
@@ -48,6 +49,30 @@ export default function Home() {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    
+    // 로딩 중이면 실행하지 않음
+    if (isLoading) {
+      return;
+    }
+    
+    const href = e.currentTarget.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const headerHeight = 140; // 헤더 높이 + 여백
+        const elementPosition = targetElement.offsetTop - headerHeight;
+        
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
   };
 
   return (
@@ -134,6 +159,7 @@ export default function Home() {
                 <motion.a
                   href="#portfolio"
                   className="mx-2.5"
+                  onClick={handleAnchorClick}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.1, ease: "easeOut" }}
@@ -143,6 +169,7 @@ export default function Home() {
                 <motion.a
                   href="#experience"
                   className="mx-2.5"
+                  onClick={handleAnchorClick}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.2, ease: "easeOut" }}
@@ -152,6 +179,7 @@ export default function Home() {
                 <motion.a
                   href="#education"
                   className="ml-2.5 mr-4"
+                  onClick={handleAnchorClick}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.3, ease: "easeOut" }}
@@ -223,6 +251,7 @@ export default function Home() {
         onClose={() => setIsMobileMenuOpen(false)}
         isDarkMode={isDarkMode}
         onToggleDarkMode={toggleDarkMode}
+        isAnimationComplete={isAnimationComplete}
       />
 
       <div
@@ -235,6 +264,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          onAnimationComplete={() => setIsAnimationComplete(true)}
         >
           <div className="w-full max-w-[1800px] px-4 sm:px-6 lg:px-10 m-auto">
             <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-2.5 min-h-screen lg:min-h-[700px] h-screen lg:h-[95vh]">
@@ -291,7 +321,8 @@ export default function Home() {
                   </svg>
                   <a
                     className="hidden lg:block scroll-indicator absolute right-0 lg:right-[60px] top-48 lg:top-[unset] lg:bottom-[10px] lg:left-[unset] border border-white p-2 lg:p-4 rounded-full rotate-90 dark-bg"
-                    href="#about"
+                    href="#skills"
+                    onClick={handleAnchorClick}
                   >
                     <img src="data:image/svg+xml,%3csvg%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.5%209.5H2.5M16.5%209.5L10.5%2015.5M16.5%209.5L10.5%203.5'%20stroke='white'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" />
                   </a>
@@ -443,22 +474,47 @@ export default function Home() {
           <motion.section
             className="py-16 lg:py-24 px-6 lg:px-10"
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
+            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0,
+              scale: [0.95, 1.02, 1],
+              rotateX: [5, 0]
+            }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 1.2
+            }}
+            viewport={{ once: false, margin: "-50px" }}
           >
             <div className="max-w-6xl mx-auto">
-              <h2
+              <motion.h2
                 id="skills"
                 className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: false, margin: "-100px" }}
               >
                 SKILLS
-              </h2>
+              </motion.h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                <div className="p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
-                  <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+                <motion.div 
+                  className="p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700"
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: false, margin: "-50px" }}
+                  whileHover={{ scale: 1.02, y: -5 }}
+                >
+                  <motion.h3 
+                    className="text-2xl font-bold mb-6 text-gray-900 dark:text-white"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.6 }}
+                  >
                     Strong
-                  </h3>
+                  </motion.h3>
                   <div className="flex flex-wrap gap-3">
                     {[
                       "WordPress",
@@ -480,11 +536,23 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-                </div>
-                <div className="p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
-                  <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+                </motion.div>
+                <motion.div 
+                  className="p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700"
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  viewport={{ once: false, margin: "-50px" }}
+                  whileHover={{ scale: 1.02, y: -5 }}
+                >
+                  <motion.h3 
+                    className="text-2xl font-bold mb-6 text-gray-900 dark:text-white"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.7 }}
+                  >
                     Experienced
-                  </h3>
+                  </motion.h3>
                   <div className="flex flex-wrap gap-3">
                     {[
                       "MVC",
@@ -504,7 +572,7 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </motion.section>
@@ -512,9 +580,18 @@ export default function Home() {
           {/* Portfolio Section */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
+            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0,
+              scale: [0.9, 1.05, 1],
+              rotateY: [10, 0]
+            }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 1.4
+            }}
+            viewport={{ once: false, margin: "-30px" }}
           >
             <PortfolioTabs />
           </motion.div>
@@ -523,16 +600,29 @@ export default function Home() {
           <motion.section
             className="py-16 lg:py-24 px-6 lg:px-10"
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
+            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0,
+              scale: [0.92, 1.03, 1],
+              x: [-20, 0]
+            }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 1.6
+            }}
+            viewport={{ once: false, margin: "-40px" }}
           >
-            <h2
+            <motion.h2
               id="experience"
               className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: false, margin: "-100px" }}
             >
               EXPERIENCE
-            </h2>
+            </motion.h2>
             <div className="relative">
               {/* Timeline line */}
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-600 hidden lg:block"></div>
@@ -662,17 +752,30 @@ export default function Home() {
           <motion.section
             className="py-16 lg:py-24 px-6 lg:px-10"
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
+            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0,
+              scale: [0.88, 1.08, 1],
+              rotateZ: [3, 0]
+            }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 1.8
+            }}
+            viewport={{ once: false, margin: "-60px" }}
           >
             <div className="max-w-6xl mx-auto">
-              <h2
+              <motion.h2
                 id="education"
                 className="text-3xl lg:text-5xl font-bold mb-12 text-center tracking-wider"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: false, margin: "-100px" }}
               >
                 EDUCATION
-              </h2>
+              </motion.h2>
               <div className="relative">
                 {/* Timeline line */}
                 <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500 to-blue-600 hidden lg:block"></div>
