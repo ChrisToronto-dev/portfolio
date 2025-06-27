@@ -53,23 +53,23 @@ export default function Home() {
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    
+
     // 로딩 중이면 실행하지 않음
     if (isLoading) {
       return;
     }
-    
-    const href = e.currentTarget.getAttribute('href');
-    if (href && href.startsWith('#')) {
+
+    const href = e.currentTarget.getAttribute("href");
+    if (href && href.startsWith("#")) {
       const targetId = href.substring(1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         const headerHeight = 140; // 헤더 높이 + 여백
         const elementPosition = targetElement.offsetTop - headerHeight;
-        
+
         window.scrollTo({
           top: elementPosition,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }
     }
@@ -475,17 +475,17 @@ export default function Home() {
             className="py-16 lg:py-24 px-6 lg:px-10"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            whileInView={{ 
-              opacity: 1, 
+            whileInView={{
+              opacity: 1,
               y: 0,
               scale: [0.95, 1.02, 1],
-              rotateX: [5, 0]
+              rotateX: [5, 0],
             }}
-            transition={{ 
-              duration: 0.6, 
-              delay: 1.2
+            transition={{
+              duration: 0.6,
+              delay: 1.2,
             }}
-            viewport={{ once: false, margin: "-50px" }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             <div className="max-w-6xl mx-auto">
               <motion.h2
@@ -494,20 +494,20 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 SKILLS
               </motion.h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                <motion.div 
+                <motion.div
                   className="p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700"
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: false, margin: "-50px" }}
+                  viewport={{ once: true, margin: "-50px" }}
                   whileHover={{ scale: 1.02, y: -5 }}
                 >
-                  <motion.h3 
+                  <motion.h3
                     className="text-2xl font-bold mb-6 text-gray-900 dark:text-white"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -537,15 +537,15 @@ export default function Home() {
                     ))}
                   </div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700"
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
-                  viewport={{ once: false, margin: "-50px" }}
+                  viewport={{ once: true, margin: "-50px" }}
                   whileHover={{ scale: 1.02, y: -5 }}
                 >
-                  <motion.h3 
+                  <motion.h3
                     className="text-2xl font-bold mb-6 text-gray-900 dark:text-white"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -581,17 +581,17 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            whileInView={{ 
-              opacity: 1, 
+            whileInView={{
+              opacity: 1,
               y: 0,
               scale: [0.9, 1.05, 1],
-              rotateY: [10, 0]
+              rotateY: [10, 0],
             }}
-            transition={{ 
-              duration: 0.6, 
-              delay: 1.4
+            transition={{
+              duration: 0.6,
+              delay: 1.4,
             }}
-            viewport={{ once: false, margin: "-30px" }}
+            viewport={{ once: true, margin: "-30px" }}
           >
             <PortfolioTabs />
           </motion.div>
@@ -601,17 +601,17 @@ export default function Home() {
             className="py-16 lg:py-24 px-6 lg:px-10"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            whileInView={{ 
-              opacity: 1, 
+            whileInView={{
+              opacity: 1,
               y: 0,
               scale: [0.92, 1.03, 1],
-              x: [-20, 0]
+              x: [-20, 0],
             }}
-            transition={{ 
-              duration: 0.6, 
-              delay: 1.6
+            transition={{
+              duration: 0.6,
+              delay: 1.6,
             }}
-            viewport={{ once: false, margin: "-40px" }}
+            viewport={{ once: true, margin: "-40px" }}
           >
             <motion.h2
               id="experience"
@@ -619,7 +619,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               EXPERIENCE
             </motion.h2>
@@ -628,7 +628,6 @@ export default function Home() {
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-600 hidden lg:block"></div>
 
               <div className="space-y-8">
-                {/* White Canvas Design */}
                 <div className="relative">
                   {/* Timeline dot */}
                   <div className="absolute -left-2 top-8 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900 hidden lg:block"></div>
@@ -639,29 +638,30 @@ export default function Home() {
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                          White Canvas Design
+                          Digital Chaos INC.
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 mb-1">
-                          Langley Twp, BC, CA
+                          Elora, Ontario N0B 1S0, Canada
                         </p>
                         <p className="font-semibold text-blue-600 dark:text-blue-400 mb-4">
-                          Wordpress Developer • Oct 2021 - Dec 2024
+                          Web Developer • Jun 2021 - Current
                         </p>
                       </div>
                     </div>
                     <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
                       <li>
                         Developed and maintained in-house and customer-facing
-                        web-applications using WordPress(PHP), Shopify(Liquid) ,
-                        Elementor, JavaScript/jQuery, HTML&CSS, Ajax , React.js,
-                        Node.js, and other programming languages upon needed
+                        web-applications using WordPress, Laravel, PHP,
+                        Elementor Pro, JavaScript/jQuery, HTML&CSS, Ajax ,
+                        Vue.js, React.js, Node.js, and other programming
+                        languages upon needed
                       </li>
                       <li>
                         Created responsive custom WordPress themes from scratch
-                        primarily using PHP, MAMP, JavaScript, JQuery, Advanced
-                        Custom Fields (ACF Pro or CPT UI plugins), custom post
-                        types, HTML5, SASS, CSS framework like Bulma , and Gulp
-                        for compiling/compressing
+                        primarily using PHP, Sage 10, MAMP, JavaScript, JQuery,
+                        Advanced Custom Fields, custom post types, HTML5, SASS,
+                        CSS framework like Tailwind , and Gulp for
+                        compiling/compressing
                       </li>
                       <li>
                         Monitored website performance(SEO, page speed etc.),
@@ -680,11 +680,6 @@ export default function Home() {
                         the Website’s user experience utilizing a variety of
                         graphics, database, animation and other software(Adobe,
                         Figma)
-                      </li>
-                      <li>
-                        Worked with stakeholders to define requirements and
-                        collaborated with marketer and designers to identify and
-                        solve complex technical problems
                       </li>
                     </ul>
                   </div>
@@ -707,16 +702,15 @@ export default function Home() {
                           Burnaby, BC, CA
                         </p>
                         <p className="font-semibold text-blue-600 dark:text-blue-400 mb-4">
-                          Wordpress Developer • Feb 2021 - Aug 2021
+                          Web Developer • Feb 2019 - Jun 2021
                         </p>
                       </div>
                     </div>
                     <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
                       <li>
                         Wrote clean, modular, and well-documented code using
-                        appropriate programming languages such as
-                        WordPress(PHP), Elementor, JavaScript, React.js,
-                        Node.js, HTML&CSS and frameworks
+                        appropriate programming languages such as WordPress,
+                        PHP, Betheme, JavaScript, HTML&CSS
                       </li>
                       <li>
                         Used staging environments to thoroughly test new
@@ -744,6 +738,40 @@ export default function Home() {
                     </ul>
                   </div>
                 </div>
+
+                {/* The Coding Bull */}
+                <div className="relative">
+                  {/* Timeline dot */}
+                  <div className="absolute -left-2 top-8 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-gray-900 hidden lg:block"></div>
+                  <div className="lg:ml-12 p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-bold text-lg">T</span>
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                          ABB Canada
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 mb-1">
+                          Burlington, ON, CA
+                        </p>
+                        <p className="font-semibold text-blue-600 dark:text-blue-400 mb-4">
+                          IS Support(Co-Op) • Jan 2018 - Aug 2018
+                        </p>
+                      </div>
+                    </div>
+                    <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                      <li>
+                        Provided networking and desktop support, account
+                        maintenance and printing assistance to faculty
+                      </li>
+                      <li>
+                        Installed operating system and printer servers to serve
+                        many faculties
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.section>
@@ -753,17 +781,17 @@ export default function Home() {
             className="py-16 lg:py-24 px-6 lg:px-10"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            whileInView={{ 
-              opacity: 1, 
+            whileInView={{
+              opacity: 1,
               y: 0,
               scale: [0.88, 1.08, 1],
-              rotateZ: [3, 0]
+              rotateZ: [3, 0],
             }}
-            transition={{ 
-              duration: 0.6, 
-              delay: 1.8
+            transition={{
+              duration: 0.6,
+              delay: 1.8,
             }}
-            viewport={{ once: false, margin: "-60px" }}
+            viewport={{ once: true, margin: "-60px" }}
           >
             <div className="max-w-6xl mx-auto">
               <motion.h2
@@ -772,7 +800,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 EDUCATION
               </motion.h2>
@@ -794,57 +822,25 @@ export default function Home() {
                         </div>
                         <div>
                           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                            University of Example
+                            Centennial College
                           </h3>
                           <p className="text-gray-600 dark:text-gray-300 mb-1">
-                            City, State
+                            Toronto, Ontario
                           </p>
-                          <p className="font-semibold text-green-600 dark:text-green-400 mb-4">
-                            Bachelor of Science in Computer Science • 2018 -
-                            2022
+                          <p className="font-semibold text-green-600 dark:text-green-400 mb-2">
+                            2 Years Diploma – Software Engineering Technician
+                          </p>
+                          <p className="font-semibold text-small">
+                            2017 - 2018
                           </p>
                         </div>
                       </div>
                       <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
                         <li>
-                          Relevant coursework: Data Structures and Algorithms,
-                          Database Systems, Software Engineering
+                          Relevant coursework: C#, Web Development, Data
+                          Structures and Algorithms, Database Systems
                         </li>
-                        <li>GPA: 3.8</li>
-                        <li>
-                          Dean&apos;s List: Fall 2020, Spring 2021, Fall 2021,
-                          Spring 2022
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/* Example Education Entry 2 */}
-                  <div className="relative">
-                    {/* Timeline dot */}
-                    <div className="absolute -left-2 top-8 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900 hidden lg:block"></div>
-                    <div className="lg:ml-12 p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <span className="text-white font-bold text-lg">
-                            🏫
-                          </span>
-                        </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                            Example High School
-                          </h3>
-                          <p className="text-gray-600 dark:text-gray-300 mb-1">
-                            City, State
-                          </p>
-                          <p className="font-semibold text-blue-600 dark:text-blue-400 mb-4">
-                            High School Diploma • 2014 - 2018
-                          </p>
-                        </div>
-                      </div>
-                      <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
-                        <li>Relevant coursework: Math, Science, English</li>
                         <li>GPA: 4.0</li>
-                        <li>Valedictorian</li>
                       </ul>
                     </div>
                   </div>
