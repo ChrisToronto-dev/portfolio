@@ -19,118 +19,90 @@ interface PortfolioData {
 const portfolioData: PortfolioData = {
   WordPress: [
     {
-      name: "WordPress Site 1",
-      description: "Modern corporate website with custom theme",
-      url: "https://example.com/wp1",
-      techStack: ["WordPress", "PHP", "Elementor"],
-      image:
-        "https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=225&fit=crop",
+      name: "Verra",
+      description: "WordPress, Sage 9, ACF with custom Gutenberg Blocks",
+      url: "https://verra.org",
+      techStack: [
+        "WordPress Custom Website",
+        "Performance optimization and AODA/WCAG 2.1 AA compliance",
+      ],
+      image: "/images/verra.webp",
+      borderColor: "#21759B",
+      gradient: "linear-gradient(195deg, #7C3AED, #000)",
+    },
+    {
+      name: "ehsAI",
+      description: "WordPress, Sage 9, ACF, SCSS and Custom Gutenberg Blocks",
+      url: "https://ehsai.com/",
+      techStack: ["Contributed as a core developer"],
+      image: "/images/ehsai.webp",
       borderColor: "#21759B",
       gradient: "linear-gradient(145deg, #21759B, #000)",
     },
     {
-      name: "WordPress Site 1",
-      description: "Modern corporate website with custom theme",
-      url: "https://example.com/wp1",
-      techStack: ["WordPress", "PHP", "Elementor"],
-      image:
-        "https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=225&fit=crop",
-      borderColor: "#21759B",
-      gradient: "linear-gradient(145deg, #21759B, #000)",
-    },
-    {
-      name: "WordPress Site 2",
-      description: "E-commerce platform with WooCommerce",
-      url: "https://example.com/wp2",
-      techStack: ["WordPress", "PHP", "ACF"],
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=225&fit=crop",
+      name: "Dejero",
+      description: "WordPress, Sage 10, ACF, SCSS and Custom Gutenberg Blocks",
+      url: "https://relaxed-roentgen.162-242-201-56.plesk.page/",
+      techStack: ["Contributed as a core developer"],
+      image: "/images/dejero.webp",
       borderColor: "#464646",
-      gradient: "linear-gradient(135deg, #61DAFB, #000)",
+      gradient: "linear-gradient(195deg, #7C3AED, #000)",
     },
     {
-      name: "WordPress Blog",
-      description: "Personal blog with custom post types",
-      url: "https://example.com/wp3",
-      techStack: ["WordPress", "PHP", "Gutenberg"],
-      image:
-        "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=225&fit=crop",
+      name: "ICE",
+      description: "WordPress, ACF and Elementor Pro",
+      url: "https://indigenouscleanenergy.com/",
+      techStack: ["Developed from the scratch"],
+      image: "/images/ice.webp",
+      borderColor: "#0073AA",
+      gradient: "linear-gradient(210deg, #0073AA, #000)",
+    },
+    {
+      name: "Many Futures",
+      description: "WordPress, ACF and Elementor Pro",
+      url: "https://manyfutures.org",
+      techStack: ["Developed from the scratch"],
+      image: "/images/manyfuture.webp",
+      borderColor: "#0073AA",
+      gradient: "linear-gradient(195deg, #7C3AED, #000)",
+    },
+    {
+      name: "Facoteck",
+      description: "WordPress, ACF and Kadence",
+      url: "https://www.facoteck.com/",
+      techStack: ["Developed from the scratch"],
+      image: "/images/faco.webp",
       borderColor: "#0073AA",
       gradient: "linear-gradient(210deg, #0073AA, #000)",
     },
   ],
   Laravel: [
     {
-      name: "Laravel CRM System",
-      description: "Customer relationship management platform",
+      name: "Offer sheet generator",
+      description: "Laravel, Blade and MySQL",
       url: "https://example.com/laravel1",
-      techStack: ["Laravel", "PHP", "MySQL"],
-      image:
-        "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=225&fit=crop",
+      techStack: ["Contributed as a core developer"],
+      image: "/images/offersheet.webp",
       borderColor: "#F05340",
       gradient: "linear-gradient(165deg, #F05340, #000)",
     },
     {
-      name: "Laravel API Service",
-      description: "RESTful API for mobile applications",
+      name: "Heavy Equipment Rental",
+      description: "Laravel, Blade and MySQL",
       url: "https://example.com/laravel2",
-      techStack: ["Laravel", "PHP", "Redis"],
-      image:
-        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=225&fit=crop",
+      techStack: ["Contributed as a core developer"],
+      image: "/images/trucon.webp",
       borderColor: "#FF2D20",
       gradient: "linear-gradient(195deg, #FF2D20, #000)",
     },
     {
-      name: "Laravel Dashboard",
-      description: "Admin dashboard with analytics",
-      url: "https://example.com/laravel3",
-      techStack: ["Laravel", "PHP", "Chart.js"],
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=225&fit=crop",
-      borderColor: "#FB503B",
-      gradient: "linear-gradient(225deg, #FB503B, #000)",
-    },
-    {
-      name: "Laravel Dashboard",
-      description: "Admin dashboard with analytics",
-      url: "https://example.com/laravel3",
-      techStack: ["Laravel", "PHP", "Chart.js"],
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=225&fit=crop",
-      borderColor: "#FB503B",
-      gradient: "linear-gradient(225deg, #FB503B, #000)",
-    },
-  ],
-  React: [
-    {
-      name: "React Dashboard",
-      description: "Real-time analytics dashboard",
-      url: "https://example.com/react1",
-      techStack: ["React", "TypeScript", "Tailwind CSS"],
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=225&fit=crop",
-      borderColor: "#61DAFB",
-      gradient: "linear-gradient(135deg, #61DAFB, #000)",
-    },
-    {
-      name: "React E-commerce",
-      description: "Modern shopping cart application",
-      url: "https://example.com/react2",
-      techStack: ["React", "Redux", "Stripe"],
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=225&fit=crop",
-      borderColor: "#20232A",
-      gradient: "linear-gradient(145deg, #20232A, #61DAFB)",
-    },
-    {
-      name: "React Chat App",
-      description: "Real-time messaging application",
-      url: "https://example.com/react3",
-      techStack: ["React", "Socket.io", "Node.js"],
-      image:
-        "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=400&h=225&fit=crop",
-      borderColor: "#282C34",
-      gradient: "linear-gradient(180deg, #282C34, #61DAFB)",
+      name: "Student Management System",
+      description: "Laravel, Blade and MySQL",
+      url: "https://example.com/laravel2",
+      techStack: ["Contributed as a core developer"],
+      image: "/images/star.webp",
+      borderColor: "#FF2D20",
+      gradient: "linear-gradient(195deg, #FF2D20, #000)",
     },
   ],
   NextJs: [
@@ -145,7 +117,7 @@ const portfolioData: PortfolioData = {
       gradient: "linear-gradient(195deg, #7C3AED, #000)",
     },
     {
-      name: "Next.js Blog",
+      name: "SNS App",
       description: "Static blog with MDX support",
       url: "https://example.com/nextjs2",
       techStack: ["Next.js", "MDX", "Tailwind"],
@@ -167,7 +139,7 @@ const portfolioData: PortfolioData = {
   ],
   Vue: [
     {
-      name: "Vue.js Dashboard",
+      name: "Company Website",
       description: "Admin panel with Vue composition API",
       url: "https://example.com/vue1",
       techStack: ["Vue.js", "JavaScript", "Vuex"],
@@ -175,26 +147,6 @@ const portfolioData: PortfolioData = {
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=225&fit=crop",
       borderColor: "#4FC08D",
       gradient: "linear-gradient(225deg, #4FC08D, #000)",
-    },
-    {
-      name: "Vue.js E-commerce",
-      description: "Online store with Nuxt.js",
-      url: "https://example.com/vue2",
-      techStack: ["Vue.js", "Nuxt.js", "Vuetify"],
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=225&fit=crop",
-      borderColor: "#00C58E",
-      gradient: "linear-gradient(135deg, #00C58E, #000)",
-    },
-    {
-      name: "Vue.js PWA",
-      description: "Progressive web application",
-      url: "https://example.com/vue3",
-      techStack: ["Vue.js", "PWA", "Firebase"],
-      image:
-        "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?w=400&h=225&fit=crop",
-      borderColor: "#41B883",
-      gradient: "linear-gradient(145deg, #41B883, #000)",
     },
   ],
 };
@@ -209,7 +161,7 @@ const PortfolioTabs: React.FC = () => {
       image: item.image,
       title: item.name,
       subtitle: item.description,
-      handle: item.techStack.join(" • "),
+      handle: item.techStack,
       borderColor: item.borderColor,
       gradient: item.gradient,
       url: item.url,
@@ -238,7 +190,6 @@ const PortfolioTabs: React.FC = () => {
         ))}
       </div>
 
-      {/* ChromaGrid를 사용한 포트폴리오 아이템들 */}
       <div className="w-full portfolio-section">
         <ChromaGrid
           items={convertToChromaItems(portfolioData[activeTab])}

@@ -5,7 +5,7 @@ export interface ChromaItem {
   image: string;
   title: string;
   subtitle: string;
-  handle?: string;
+  handle?: string | string[];
   location?: string;
   borderColor?: string;
   gradient?: string;
@@ -189,17 +189,21 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
               className="w-full h-auto aspect-[16/9] object-cover rounded-[10px]"
             />
           </div>
-          <footer className="relative z-10 p-3 text-white grid grid-cols-[1fr_auto] gap-x-3 gap-y-1">
+          <footer className="relative z-10 p-3 text-white flex flex-col">
             <h3 className="m-0 text-[1.05rem] font-semibold">{c.title}</h3>
-            {c.handle && (
-              <span className="text-[0.95rem] opacity-80 text-right">
-                {c.handle}
-              </span>
-            )}
+            <span className="pt-0 m-0 text-[0.85rem] opacity-85 font-semibold">
+              {c.subtitle}
+            </span>
           </footer>
-          <p className="p-3 pt-0 m-0 text-[0.85rem] opacity-85 font-semibold">
-            {c.subtitle}
-          </p>
+          {c.handle && (
+            <ul className="text-[0.85rem] opacity-80 text-left p-3 pt-0 font-semibold list-disc list-inside">
+              {Array.isArray(c.handle) ? (
+                c.handle.map((item, index) => <li key={index}>{item}</li>)
+              ) : (
+                <li>{c.handle}</li>
+              )}
+            </ul>
+          )}
         </article>
       ))}
       <div
