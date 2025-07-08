@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import NextImage from "next/image";
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
@@ -44,10 +45,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <img
+          <NextImage
             src="/images/logo.svg"
             alt="Logo"
             className="w-24 h-24 mx-auto mb-4"
+            width={96}
+            height={96}
           />
           <h1 className="text-2xl font-bold text-white">Portfolio</h1>
         </motion.div>

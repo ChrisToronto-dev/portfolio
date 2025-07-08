@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Balatro from "./component/Balatro";
 import LoadingScreen from "./component/LoadingScreen";
 import MobileMenu from "./component/MobileMenu";
+import NextImage from "next/image";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -102,16 +103,14 @@ export default function Home() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
           >
-            <img
-              className="w-16 sm:w-20 lg:w-[100px] h-auto light-hidden"
-              src="/images/logo.svg"
-              alt=""
-            />
-            <img
-              className="w-16 sm:w-20 lg:w-[100px] h-auto hidden light-visible"
-              src="/images/logo_black.svg"
-              alt=""
-            />
+            <div className="w-16 sm:w-20 lg:w-[100px] h-full light-hidden relative">
+              <NextImage src="/images/logo.svg" alt="" fill />
+            </div>
+
+            <div className="w-16 sm:w-20 lg:w-[100px] h-full hidden light-visible relative">
+              <NextImage src="/images/logo_black.svg" alt="" fill />
+            </div>
+
             <svg
               className="svg-corner absolute left-0 bottom-[-30px]"
               width="30"
@@ -324,15 +323,20 @@ export default function Home() {
                     href="#skills"
                     onClick={handleAnchorClick}
                   >
-                    <img src="data:image/svg+xml,%3csvg%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.5%209.5H2.5M16.5%209.5L10.5%2015.5M16.5%209.5L10.5%203.5'%20stroke='white'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" />
+                    <NextImage
+                      src="data:image/svg+xml,%3csvg%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.5%209.5H2.5M16.5%209.5L10.5%2015.5M16.5%209.5L10.5%203.5'%20stroke='white'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e"
+                      alt="button image"
+                      fill
+                    />
                   </a>
                 </div>
               </div>
               <div className="hero-right flex flex-col justify-center lg:justify-normal gap-6 lg:gap-2.5 items-center h-full flex-grow relative order-1 lg:order-2 py-8 lg:py-0">
-                <div className="profile-img w-40 sm:w-48 lg:w-64 rounded-full border-4 border-white shadow-2xl">
-                  <img
+                <div className="profile-img relative w-40 sm:w-48 lg:w-64 aspect-square rounded-full border-4 border-white shadow-2xl">
+                  <NextImage
                     src="/images/IMG_2283.jpeg"
                     alt="profile"
+                    fill
                     className="rounded-full border-1 border-black"
                   />
                 </div>
@@ -352,51 +356,77 @@ export default function Home() {
                     pagination={{
                       clickable: true,
                       dynamicBullets: false,
-                      // type: 'fraction', // 숫자 형태 (예: 1/4)
-                      //type: "progressbar", // 프로그레스바 형태
                     }}
                     modules={[Pagination]}
                     loop={true}
                     className="w-full h-full bg-[#5c54f9] rounded-[20px] sm:rounded-[30px] p-2 sm:p-4"
                   >
-                    <SwiperSlide className="flex flex-col items-center justify-center text-center">
-                      <img
-                        src="/images/web-white.svg"
-                        alt=""
-                        className="mb-3"
-                      />
+                    <SwiperSlide className="flex flex-col items-center justify-center text-center relative">
+                      <div className="img-box relative h-[135px]">
+                        <NextImage
+                          src="/images/web-white.svg"
+                          alt=""
+                          className="mb-3"
+                          fill
+                        />
+                      </div>
+
                       <p className="text-sm sm:text-base">
                         Developed over 30 websites using WordPress, Laravel,
                         Veuw, and React.js
                       </p>
                     </SwiperSlide>
                     <SwiperSlide className="flex flex-col items-center justify-center text-center">
-                      <img
-                        src="/images/wordpress.svg"
-                        alt=""
-                        className="mb-3"
-                      />
+                      <div className="img-box relative h-[135px]">
+                        <NextImage
+                          src="/images/wordpress.svg"
+                          alt=""
+                          className="mb-3"
+                          fill
+                        />
+                      </div>
                       <p className="text-sm sm:text-base">
                         WordPress Specialist with 5+ years of experience in
                         custom themes, plugins, and site optimization.
                       </p>
                     </SwiperSlide>
                     <SwiperSlide className="flex flex-col items-center justify-center text-center">
-                      <img src="/images/laravel.svg" alt="" className="mb-3" />
+                      <div className="img-box relative h-[135px]">
+                        <NextImage
+                          src="/images/laravel.svg"
+                          alt=""
+                          className="mb-3"
+                          fill
+                        />
+                      </div>
                       <p className="text-sm sm:text-base">
                         Laravel Framework Expert with 5+ years of experience
                         building large-scale web applications.
                       </p>
                     </SwiperSlide>
                     <SwiperSlide className="flex flex-col items-center justify-center text-center">
-                      <img src="/images/react.svg" alt="" className="mb-3" />
+                      <div className="img-box relative h-[135px]">
+                        <NextImage
+                          src="/images/react.svg"
+                          alt=""
+                          className="mb-3"
+                          fill
+                        />
+                      </div>
                       <p className="text-sm sm:text-base">
                         Proficient in React.js, with solid experience building
                         dynamic frontend interfaces.
                       </p>
                     </SwiperSlide>
                     <SwiperSlide className="flex flex-col items-center justify-center text-center">
-                      <img src="/images/nextjs.svg" alt="" className="mb-3" />
+                      <div className="img-box relative h-[135px]">
+                        <NextImage
+                          src="/images/nextjs.svg"
+                          alt=""
+                          className="mb-3"
+                          fill
+                        />
+                      </div>
                       <p className="text-sm sm:text-base">
                         Experienced with Next.js for modern, fast-performing web
                         apps.
@@ -408,11 +438,12 @@ export default function Home() {
                   <div className="blog-slider-button cursor-pointer">
                     <span
                       onClick={handleNext}
-                      className="w-[30px] sm:w-[50px] aspect-square rounded-full flex items-center justify-center bg-black border-1 sm:border-2 border-white"
+                      className=" relative w-[30px] sm:w-[50px] aspect-square rounded-full flex items-center justify-center bg-black border-1 sm:border-2 border-white"
                     >
-                      <img
+                      <NextImage
                         src="data:image/svg+xml,%3csvg%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.5%209.5H2.5M16.5%209.5L10.5%2015.5M16.5%209.5L10.5%203.5'%20stroke='white'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e"
                         alt="arrow pointing right"
+                        fill
                       />
                     </span>
                     <svg
@@ -634,7 +665,7 @@ export default function Home() {
                   <div className="lg:ml-12 p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
                     <div className="flex items-start gap-4 mb-4">
                       <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-lg">W</span>
+                        <span className="text-white font-bold text-lg">D</span>
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -746,7 +777,7 @@ export default function Home() {
                   <div className="lg:ml-12 p-6 lg:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
                     <div className="flex items-start gap-4 mb-4">
                       <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-lg">T</span>
+                        <span className="text-white font-bold text-lg">A</span>
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">

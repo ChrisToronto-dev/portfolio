@@ -20,10 +20,10 @@ const portfolioData: PortfolioData = {
   WordPress: [
     {
       name: "Verra",
-      description: "WordPress, Sage 9, ACF with custom Gutenberg Blocks",
+      description: "Custom WordPress Theme Development",
       url: "https://verra.org",
       techStack: [
-        "WordPress Custom Website",
+        "WordPress, Sage 9, ACF with custom Gutenberg Blocks",
         "Performance optimization and AODA/WCAG 2.1 AA compliance",
       ],
       image: "/images/verra.webp",
@@ -32,45 +32,60 @@ const portfolioData: PortfolioData = {
     },
     {
       name: "ehsAI",
-      description: "WordPress, Sage 9, ACF, SCSS and Custom Gutenberg Blocks",
+      description: "Custom WordPress Theme Development",
       url: "https://ehsai.com/",
-      techStack: ["Contributed as a core developer"],
+      techStack: [
+        "WordPress, Sage 9, ACF component-based theme development",
+        "Collaborative custom block development and organized CSS structure",
+      ],
       image: "/images/ehsai.webp",
       borderColor: "#21759B",
       gradient: "linear-gradient(145deg, #21759B, #000)",
     },
     {
       name: "Dejero",
-      description: "WordPress, Sage 10, ACF, SCSS and Custom Gutenberg Blocks",
+      description: "Custom WordPress Theme Development",
       url: "https://relaxed-roentgen.162-242-201-56.plesk.page/",
-      techStack: ["Contributed as a core developer"],
+      techStack: [
+        "WordPress, Sage 10, ACF Pro with modern PHP architecture",
+        "Custom Gutenberg Blocks development with Tailwind CSS styling",
+      ],
       image: "/images/dejero.webp",
       borderColor: "#464646",
       gradient: "linear-gradient(195deg, #7C3AED, #000)",
     },
     {
       name: "ICE",
-      description: "WordPress, ACF and Elementor Pro",
+      description: "WordPress Development with Page Builder",
       url: "https://indigenouscleanenergy.com/",
-      techStack: ["Developed from the scratch"],
+      techStack: [
+        "WordPress, ACF, Elementor Pro hybrid development",
+        "Custom Elementor widgets and responsive design",
+      ],
       image: "/images/ice.webp",
       borderColor: "#0073AA",
       gradient: "linear-gradient(210deg, #0073AA, #000)",
     },
     {
       name: "Many Futures",
-      description: "WordPress, ACF and Elementor Pro",
+      description: "WordPress Development with Page Builder",
       url: "https://manyfutures.org",
-      techStack: ["Developed from the scratch"],
+      techStack: [
+        "WordPress, ACF, Elementor Pro hybrid development",
+        "Custom Elementor widgets and responsive design",
+      ],
       image: "/images/manyfuture.webp",
       borderColor: "#0073AA",
       gradient: "linear-gradient(195deg, #7C3AED, #000)",
     },
     {
       name: "Facoteck",
-      description: "WordPress, ACF and Kadence",
+      description: "WordPress Development with Kadence Theme",
       url: "https://www.facoteck.com/",
-      techStack: ["Developed from the scratch"],
+      techStack: [
+        "WordPress, ACF, Kadence theme customization",
+        "Custom styling and theme modification",
+      ],
       image: "/images/faco.webp",
       borderColor: "#0073AA",
       gradient: "linear-gradient(210deg, #0073AA, #000)",
@@ -79,9 +94,12 @@ const portfolioData: PortfolioData = {
   Laravel: [
     {
       name: "Offer sheet generator",
-      description: "Laravel, Blade and MySQL",
+      description: "Laravel Website Maintenance & Enhancement",
       url: "https://example.com/laravel1",
-      techStack: ["Contributed as a core developer"],
+      techStack: [
+        "Laravel, Blade with dynamic PDF generation system",
+        "Code optimization and new feature implementation",
+      ],
       image: "/images/offersheet.webp",
       borderColor: "#F05340",
       gradient: "linear-gradient(165deg, #F05340, #000)",
@@ -90,16 +108,22 @@ const portfolioData: PortfolioData = {
       name: "Heavy Equipment Rental",
       description: "Laravel, Blade and MySQL",
       url: "https://example.com/laravel2",
-      techStack: ["Contributed as a core developer"],
+      techStack: [
+        "Laravel RESTful API with JWT authentication",
+        "Google Maps API and real-time WebSocket tracking",
+      ],
       image: "/images/trucon.webp",
       borderColor: "#FF2D20",
       gradient: "linear-gradient(195deg, #FF2D20, #000)",
     },
     {
       name: "Student Management System",
-      description: "Laravel, Blade and MySQL",
+      description: "Laravel Web Application for 200+ Concurrent Users",
       url: "https://example.com/laravel2",
-      techStack: ["Contributed as a core developer"],
+      techStack: [
+        "Laravel MVC with complex Eloquent relationships",
+        "Multi-user educational platform with real-time data management",
+      ],
       image: "/images/star.webp",
       borderColor: "#FF2D20",
       gradient: "linear-gradient(195deg, #FF2D20, #000)",
@@ -107,32 +131,26 @@ const portfolioData: PortfolioData = {
   ],
   NextJs: [
     {
-      name: "Next.js Portfolio",
-      description: "Server-side rendered portfolio site",
-      url: "https://example.com/nextjs1",
-      techStack: ["Next.js", "React", "TypeScript"],
-      image:
-        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=225&fit=crop",
-      borderColor: "#000000",
-      gradient: "linear-gradient(195deg, #7C3AED, #000)",
-    },
-    {
       name: "SNS App",
-      description: "Static blog with MDX support",
+      description: "Twitter-like Social Media Platform",
       url: "https://example.com/nextjs2",
-      techStack: ["Next.js", "MDX", "Tailwind"],
-      image:
-        "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=225&fit=crop",
+      techStack: [
+        "Next.js full-stack development with Prisma ORM",
+        "Social media features and real-time interactions",
+      ],
+      image: "/images/sns-carrot.webp",
       borderColor: "#0070F3",
       gradient: "linear-gradient(165deg, #0070F3, #000)",
     },
     {
-      name: "Next.js SaaS",
-      description: "Full-stack SaaS application",
+      name: "MyCafe",
+      description: "Cafe Review Platform",
       url: "https://example.com/nextjs3",
-      techStack: ["Next.js", "Prisma", "Stripe"],
-      image:
-        "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=225&fit=crop",
+      techStack: [
+        "Next.js full-stack development with Prisma ORM",
+        "User review system and rating functionality",
+      ],
+      image: "/images/mycafe.webp",
       borderColor: "#7C3AED",
       gradient: "linear-gradient(195deg, #7C3AED, #000)",
     },
@@ -140,11 +158,13 @@ const portfolioData: PortfolioData = {
   Vue: [
     {
       name: "Company Website",
-      description: "Admin panel with Vue composition API",
-      url: "https://example.com/vue1",
-      techStack: ["Vue.js", "JavaScript", "Vuex"],
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=225&fit=crop",
+      description: "Vue.js Website Maintenance & Enhancement",
+      url: "https://digitalchaos.ca",
+      techStack: [
+        "Vue.js maintenance and feature updates",
+        "JavaScript optimization and bug fixes",
+      ],
+      image: "/images/dc.webp",
       borderColor: "#4FC08D",
       gradient: "linear-gradient(225deg, #4FC08D, #000)",
     },

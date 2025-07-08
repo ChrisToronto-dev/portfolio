@@ -16,7 +16,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   onClose,
   isDarkMode,
   onToggleDarkMode,
-  isAnimationComplete,
 }) => {
   const menuItems = [
     { name: "Project", href: "#project" },
@@ -28,20 +27,20 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    
+
     // 메뉴 닫기는 항상 실행
-    
-    const href = e.currentTarget.getAttribute('href');
-    if (href && href.startsWith('#')) {
+
+    const href = e.currentTarget.getAttribute("href");
+    if (href && href.startsWith("#")) {
       const targetId = href.substring(1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         const headerHeight = 140;
         const elementPosition = targetElement.offsetTop - headerHeight;
-        
+
         window.scrollTo({
           top: elementPosition,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }
     }

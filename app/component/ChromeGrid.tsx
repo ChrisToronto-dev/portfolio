@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
+import NextImage from "next/image";
 
 export interface ChromaItem {
   image: string;
@@ -181,12 +182,13 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
                 "radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 70%)",
             }}
           />
-          <div className="relative z-10 p-[10px] box-border">
-            <img
+          <div className="relative z-10 p-[10px] box-border aspect-[16/9]">
+            <NextImage
               src={c.image}
               alt={c.title}
               loading="lazy"
               className="w-full h-auto aspect-[16/9] object-cover rounded-[10px]"
+              fill
             />
           </div>
           <footer className="relative z-10 p-3 text-white flex flex-col">
