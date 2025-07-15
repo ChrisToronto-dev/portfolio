@@ -334,7 +334,7 @@ export default function Home() {
               <div className="hero-right flex flex-col justify-center lg:justify-normal gap-6 lg:gap-2.5 items-center h-full flex-grow relative order-1 lg:order-2 py-8 lg:py-0">
                 <div className="profile-img relative w-40 sm:w-48 lg:w-64 aspect-square rounded-full border-4 border-white shadow-2xl">
                   <NextImage
-                    src="/images/IMG_2283.jpeg"
+                    src="/images/portrait.webp"
                     alt="profile"
                     fill
                     className="rounded-full border-1 border-black"
@@ -373,7 +373,7 @@ export default function Home() {
 
                       <p className="text-sm sm:text-base py-5 lg:py-0">
                         Developed over 30 websites using WordPress, Laravel,
-                        Veuw, and React.js
+                        Vue.js, and React
                       </p>
                     </SwiperSlide>
                     <SwiperSlide className="flex flex-col items-center justify-center text-center">
