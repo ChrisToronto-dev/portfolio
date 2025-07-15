@@ -208,5 +208,11 @@ body {
       background: unset !important;
       backdrop-filter: unset !important;
     }
+
+    .list-disc {
+      li {
+        color: white;
+      }
+    }
   }
 }

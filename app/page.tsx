@@ -319,7 +319,7 @@ export default function Home() {
                     </defs>
                   </svg>
                   <a
-                    className="hidden lg:block scroll-indicator absolute right-0 lg:right-[60px] top-48 lg:top-[unset] lg:bottom-[10px] lg:left-[unset] border border-white p-2 lg:p-4 rounded-full rotate-90 dark-bg"
+                    className="hidden lg:block scroll-indicator absolute right-0 lg:right-[-60px] top-48 lg:top-[unset] lg:bottom-[10px] lg:left-[unset] border border-white p-2 lg:p-6 rounded-full rotate-90 dark-bg bg-black"
                     href="#skills"
                     onClick={handleAnchorClick}
                   >
@@ -371,7 +371,7 @@ export default function Home() {
                         />
                       </div>
 
-                      <p className="text-sm sm:text-base">
+                      <p className="text-sm sm:text-base py-5 lg:py-0">
                         Developed over 30 websites using WordPress, Laravel,
                         Veuw, and React.js
                       </p>
@@ -385,7 +385,7 @@ export default function Home() {
                           fill
                         />
                       </div>
-                      <p className="text-sm sm:text-base">
+                      <p className="text-sm sm:text-base py-5 lg:py-0">
                         WordPress Specialist with 5+ years of experience in
                         custom themes, plugins, and site optimization.
                       </p>
@@ -399,7 +399,7 @@ export default function Home() {
                           fill
                         />
                       </div>
-                      <p className="text-sm sm:text-base">
+                      <p className="text-sm sm:text-base py-5 lg:py-0">
                         Laravel Framework Expert with 5+ years of experience
                         building large-scale web applications.
                       </p>
@@ -413,7 +413,7 @@ export default function Home() {
                           fill
                         />
                       </div>
-                      <p className="text-sm sm:text-base">
+                      <p className="text-sm sm:text-base py-5 lg:py-0">
                         Proficient in React.js, with solid experience building
                         dynamic frontend interfaces.
                       </p>
@@ -427,7 +427,7 @@ export default function Home() {
                           fill
                         />
                       </div>
-                      <p className="text-sm sm:text-base">
+                      <p className="text-sm sm:text-base py-5 lg:py-0">
                         Experienced with Next.js for modern, fast-performing web
                         apps.
                       </p>

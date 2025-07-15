@@ -187,7 +187,7 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
               src={c.image}
               alt={c.title}
               loading="lazy"
-              className="w-full h-auto aspect-[16/9] object-cover rounded-[10px]"
+              className="w-full h-auto aspect-[16/9] object-cover rounded-[10px] rounded-bl-none rounded-br-none"
               fill
             />
           </div>

@@ -198,7 +198,7 @@ const PortfolioTabs: React.FC = () => {
         {tabs.map((tab) => (
           <button
             key={tab}
-            className={`mx-2 py-3 px-6 rounded-full border-2 border-white z-60 cursor-pointer transition-all duration-300 hover:scale-105 ${
+            className={`mx-2 py-3 px-6 rounded-full border-2 border-white z-45 cursor-pointer transition-all duration-300 hover:scale-105 ${
               activeTab === tab
                 ? "bg-white shadow-lg text-black light-text-white dark-bg border-2 border-white light-border"
                 : "bg-transparent hover:bg-gray-100 hover:text-black light-border hover-dark"
