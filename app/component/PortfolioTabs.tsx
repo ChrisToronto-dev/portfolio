@@ -95,7 +95,7 @@ const portfolioData: PortfolioData = {
     {
       name: "Offer sheet generator",
       description: "Laravel Website Maintenance & Enhancement",
-      url: "https://example.com/laravel1",
+      url: "",
       techStack: [
         "Laravel, Blade with dynamic PDF generation system",
         "Code optimization and new feature implementation",
@@ -107,7 +107,7 @@ const portfolioData: PortfolioData = {
     {
       name: "Heavy Equipment Rental",
       description: "Laravel, Blade and MySQL",
-      url: "https://example.com/laravel2",
+      url: "",
       techStack: [
         "Laravel RESTful API with JWT authentication",
         "Google Maps API and real-time WebSocket tracking",
@@ -119,7 +119,7 @@ const portfolioData: PortfolioData = {
     {
       name: "Student Management System",
       description: "Laravel Web Application for 200+ Concurrent Users",
-      url: "https://example.com/laravel2",
+      url: "",
       techStack: [
         "Laravel MVC with complex Eloquent relationships",
         "Multi-user educational platform with real-time data management",
@@ -133,7 +133,7 @@ const portfolioData: PortfolioData = {
     {
       name: "SNS App",
       description: "Twitter-like Social Media Platform",
-      url: "https://example.com/nextjs2",
+      url: "https://carrot-assignment.vercel.app/login",
       techStack: [
         "Next.js full-stack development with Prisma ORM",
         "Social media features and real-time interactions",
@@ -145,7 +145,7 @@ const portfolioData: PortfolioData = {
     {
       name: "MyCafe",
       description: "Cafe Review Platform",
-      url: "https://example.com/nextjs3",
+      url: "",
       techStack: [
         "Next.js full-stack development with Prisma ORM",
         "User review system and rating functionality",

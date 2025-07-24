@@ -681,36 +681,25 @@ export default function Home() {
                     </div>
                     <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
                       <li>
-                        Developed and maintained in-house and customer-facing
-                        web-applications using WordPress, Laravel, PHP,
-                        Elementor Pro, JavaScript/jQuery, HTML&CSS, Ajax ,
-                        Vue.js, React.js, Node.js, and other programming
-                        languages upon needed
+                        Develop and maintain custom WordPress sites and custom
+                        themes to deliver tailored website solutions
                       </li>
                       <li>
-                        Created responsive custom WordPress themes from scratch
-                        primarily using PHP, Sage 10, MAMP, JavaScript, JQuery,
-                        Advanced Custom Fields, custom post types, HTML5, SASS,
-                        CSS framework like Tailwind , and Gulp for
-                        compiling/compressing
+                        Implement dynamic frontend interfaces using Laravel
+                        Blade templating engine for enhanced user interactions
                       </li>
                       <li>
-                        Monitored website performance(SEO, page speed etc.),
-                        identified issues, and implemented necessary fixes or
-                        improvements and conducted version control using Github
+                        Build custom WordPress themes using Sage 10 starter
+                        theme with modern development workflows and build tools
                       </li>
                       <li>
-                        Troubleshoot issues related to website, plugins, and
-                        theme investigating through the hosting
-                        platforms(WPEngine, Danory or cPanel) and File Manager,
-                        PHP Admin
+                        Create custom Gutenberg blocks using ACF (Advanced
+                        Custom Fields) to provide intuitive content management
+                        experiences
                       </li>
                       <li>
-                        Collaborated with the marketer, content creator, and
-                        designers to deliver consistent and optimizing them for
-                        the Website’s user experience utilizing a variety of
-                        graphics, database, animation and other software(Adobe,
-                        Figma)
+                        Develop efficient UI/UX design systems and reusable
+                        components utilizing Tailwind CSS framework
                       </li>
                     </ul>
                   </div>
@@ -739,32 +728,18 @@ export default function Home() {
                     </div>
                     <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
                       <li>
-                        Wrote clean, modular, and well-documented code using
-                        appropriate programming languages such as WordPress,
-                        PHP, Betheme, JavaScript, HTML&CSS
+                        Developed the frontend of web applications using PHP,
+                        WordPress, JavaScript, HTML5/CSS3, and SASS.
                       </li>
                       <li>
-                        Used staging environments to thoroughly test new
-                        features, functionalities, and design changes before
-                        pushing them to live websites.
+                        Built WooCommerce-based e-commerce sites and seamlessly
+                        integrated them with various payment APIs like PayPal
+                        campaigns and Authorize.net, providing robust payment
+                        solutions.
                       </li>
                       <li>
-                        Optimized application performance and ensure seamless
-                        user experience across different devices and browsers
-                      </li>
-                      <li>
-                        Conducted version-control and collaborations within
-                        dev-team using Github
-                      </li>
-                      <li>
-                        Utilized knowledges in WordPress to create custom
-                        themes, templates, and plugins that align with design
-                        mockups and functional requirements.
-                      </li>
-                      <li>
-                        Implemented accessibility, mobile responsive, and site
-                        speed optimizations and cross-browser testing before &
-                        after new project launch
+                        Developed WordPress Themes and back-end user controls
+                        from scratch to add new functionality that is portable
                       </li>
                     </ul>
                   </div>
@@ -793,12 +768,16 @@ export default function Home() {
                     </div>
                     <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
                       <li>
-                        Provided networking and desktop support, account
-                        maintenance and printing assistance to faculty
+                        Developed and maintained the program made of Visual
+                        Basic and Excel
                       </li>
                       <li>
-                        Installed operating system and printer servers to serve
-                        many faculties
+                        Successfully provided IT Support and Troubleshooting to
+                        the general school systems
+                      </li>
+                      <li>
+                        Assisted with SAP CoE Support Functions and reported
+                        data from ERP SAP system
                       </li>
                     </ul>
                   </div>
