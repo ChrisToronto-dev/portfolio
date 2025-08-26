@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import ChromaGrid, { ChromaItem } from "./ChromeGrid"; // ChromaGrid 컴포넌트 import 경로를 맞춰주세요
+import ChromaGrid, { ChromaItem } from "./ChromeGrid";
 
 interface PortfolioItem {
   name: string;
@@ -51,6 +51,18 @@ const portfolioData: PortfolioData = {
         "Custom Gutenberg Blocks development with Tailwind CSS styling",
       ],
       image: "/images/dejero.webp",
+      borderColor: "#464646",
+      gradient: "linear-gradient(195deg, #7C3AED, #000)",
+    },
+    {
+      name: "WineOpeners",
+      description: "Woocommerce Website Development",
+      url: "https://wineopeners.ca/",
+      techStack: [
+        "WordPress, Woocommerce, Elementor Pro, ACF Pro with modern PHP architecture",
+        "Woocommerce feature development",
+      ],
+      image: "/images/wine.webp",
       borderColor: "#464646",
       gradient: "linear-gradient(195deg, #7C3AED, #000)",
     },
