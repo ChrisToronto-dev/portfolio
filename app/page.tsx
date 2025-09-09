@@ -84,7 +84,7 @@ export default function Home() {
         )}
       </AnimatePresence>
       <motion.header
-        className="fixed z-50 w-full top-0"
+        className="fixed z-20 w-full top-0"
         initial={{ x: "-100%", opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
@@ -254,7 +254,7 @@ export default function Home() {
       />
 
       <div
-        className={`min-h-screen mt-2.5 pb-28 light-bg ${
+        className={`min-h-screen mt-2.5 pb-28 light-bg z-20 ${
           isDarkMode ? "bg-black text-white" : "bg-white text-black"
         }`}
       >

@@ -45,7 +45,7 @@ const portfolioData: PortfolioData = {
     {
       name: "Dejero",
       description: "Custom WordPress Theme Development",
-      url: "https://relaxed-roentgen.162-242-201-56.plesk.page/",
+      url: "https://www.dejero.com",
       techStack: [
         "WordPress, Sage 10, ACF Pro with modern PHP architecture",
         "Custom Gutenberg Blocks development with Tailwind CSS styling",

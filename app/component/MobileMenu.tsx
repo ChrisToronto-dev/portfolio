@@ -19,7 +19,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 }) => {
   const menuItems = [
     { name: "Project", href: "#project" },
-    { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Experience", href: "#experience" },
     { name: "Education", href: "#education" },
